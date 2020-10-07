@@ -3,6 +3,7 @@ export default interface Movie {
   posterPath:string;
   releaseDate:string;
   id : number;
+  
 }
 export interface MovieEmpty {
   title?: string;

@@ -7,16 +7,18 @@ import './Home.sass';
 import Modal from '../Modal/Modal';
 
 const getData = async (url: string = '') => {
-  const response = await axios.get(
-    url || 'https://api.themoviedb.org/4/list/1',
-    {
+  const response = await axios
+    .get(url.trim() !== '' ? url : 'https://api.themoviedb.org/4/list/1', {
       headers: {
         Authorization:
           'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOGZjNmQ3OTVlMzhiNmI1NTdmOWNhN2FhZTFjYzViMyIsInN1YiI6IjVmN2NmNmFmZmRmYzlmMDAzOGI1OTBkNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7mm9P-EFL-HdQVo2gxao0egAaHujxrm3XiuUzWiLnDY',
         'Content-Type': 'application/json;charset=utf-8',
       },
-    }
-  );
+    })
+    .catch((exception) => {
+      console.error(exception);
+      throw exception;
+    });
   console.log(response);
   return response.data.results.map((movie: any) => {
     return {
@@ -35,28 +37,28 @@ export default function Home(): ReactElement {
   const [movieShowed, setMovieShowed] = useState(EMPTY_MOVIES);
   const [movies, setMovies] = useState(EMPTY_MOVIES_LIST);
   useEffect(() => {
-    getData()
-      .then((movies) => {
-        return setMovies(movies);
-      })
-      .catch((exception) => {
-        console.error(exception);
-      });
+    getData().then((movies) => {
+      return setMovies(movies);
+    });
   }, []);
   function getSearch(value: string) {
-    console.log(value);
-    setSearch(value);
-    getData(
-      `https://api.themoviedb.org/4/search/movie?query=${encodeURIComponent(
-        value
-      )}&language=fr-FR`
-    )
-      .then((movies) => {
+    if (value !== search) {
+      console.log(value);
+      setSearch(value);
+      let data: Promise<any>;
+      if (value.trim() !== '') {
+        data = getData(
+          `https://api.themoviedb.org/4/search/movie?query=${encodeURIComponent(
+            value
+          )}&language=fr-FR`
+        );
+      } else {
+        data = getData();
+      }
+      data.then((movies) => {
         return setMovies(movies);
-      })
-      .catch((exception) => {
-        console.error(exception);
       });
+    }
   }
   function showMovie(movieId: number) {
     const mov = movies.find((mov) => {
