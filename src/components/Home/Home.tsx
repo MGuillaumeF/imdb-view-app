@@ -6,14 +6,17 @@ import axios from 'axios';
 import './Home.sass';
 import Modal from '../Modal/Modal';
 
-const getData = async () => {
-  const response = await axios.get('https://api.themoviedb.org/4/list/1', {
-    headers: {
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOGZjNmQ3OTVlMzhiNmI1NTdmOWNhN2FhZTFjYzViMyIsInN1YiI6IjVmN2NmNmFmZmRmYzlmMDAzOGI1OTBkNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7mm9P-EFL-HdQVo2gxao0egAaHujxrm3XiuUzWiLnDY',
-      'Content-Type': 'application/json;charset=utf-8',
-    },
-  });
+const getData = async (url: string = '') => {
+  const response = await axios.get(
+    url || 'https://api.themoviedb.org/4/list/1',
+    {
+      headers: {
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOGZjNmQ3OTVlMzhiNmI1NTdmOWNhN2FhZTFjYzViMyIsInN1YiI6IjVmN2NmNmFmZmRmYzlmMDAzOGI1OTBkNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7mm9P-EFL-HdQVo2gxao0egAaHujxrm3XiuUzWiLnDY',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    }
+  );
   console.log(response);
   return response.data.results.map((movie: any) => {
     return {
@@ -43,6 +46,17 @@ export default function Home(): ReactElement {
   function getSearch(value: string) {
     console.log(value);
     setSearch(value);
+    getData(
+      `https://api.themoviedb.org/4/search/movie?query=${encodeURIComponent(
+        value
+      )}&language=fr-FR`
+    )
+      .then((movies) => {
+        return setMovies(movies);
+      })
+      .catch((exception) => {
+        console.error(exception);
+      });
   }
   function showMovie(movieId: number) {
     const mov = movies.find((mov) => {
@@ -58,7 +72,12 @@ export default function Home(): ReactElement {
       movieShowed.posterPath &&
       movieShowed.releaseDate &&
       movieShowed.title ? (
-        <Modal data={movieShowed as Movie} onClose={()=>{setMovieShowed(EMPTY_MOVIES)}}/>
+        <Modal
+          data={movieShowed as Movie}
+          onClose={() => {
+            setMovieShowed(EMPTY_MOVIES);
+          }}
+        />
       ) : null}
     </div>
   );
