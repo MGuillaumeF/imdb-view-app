@@ -4,7 +4,8 @@ import MovieItem from '../MovieItem/MovieItem'
 import './MoviesList.sass'
 interface IMoviesListProps {
     search : string,
-    movies : Movie[]
+    movies : Movie[],
+    onClickItem : Function
 }
 
 export default function MoviesList(props: IMoviesListProps): ReactElement {
@@ -13,7 +14,7 @@ export default function MoviesList(props: IMoviesListProps): ReactElement {
     })
     return (
         <div className='MoviesList'>
-            {movies.map((movie : Movie) => <MovieItem key={movie.id} data={movie}/>)}
+            {movies.map((movie : Movie) => <MovieItem key={movie.id} data={movie} onClick={props.onClickItem}/>)}
         </div>
     )
 }
