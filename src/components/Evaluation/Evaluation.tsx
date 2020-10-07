@@ -33,15 +33,15 @@ export default function Evaluation(props: IEvaluationProps): ReactElement {
         d='M50 200 a 150 150 0 1 0 150 -150'
         fill='transparent'
         stroke={getColor()}
-        stroke-width='20'
+        strokeWgit idth='20'
       />
       <text
         x='200'
         y='200'
-        dominant-baseline='middle'
-        text-anchor='middle'
-        font-family='Verdana'
-        font-size='100'
+        dominantBaseline='middle'
+        textAnchor='middle'
+        fontFamily='Verdana'
+        fontSize='100'
         fill='white'
       >
         {props.note}
