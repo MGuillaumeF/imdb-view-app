@@ -30,7 +30,7 @@ export default function Evaluation(props: IEvaluationProps): ReactElement {
 
       <path d='M0 200 a 200 200 0 1 0 0 -1 z' />
       <path
-        d='M50 200 a 150 150 0 1 0 150 -150'
+        d='M200 50 a 150 150 0 1 0 150 150'
         fill='transparent'
         stroke={getColor()}
         strokeWidth='20'
@@ -42,7 +42,7 @@ export default function Evaluation(props: IEvaluationProps): ReactElement {
         textAnchor='middle'
         fontFamily='Verdana'
         fontSize='100'
-        fill='white'
+        fill={getColor()}
       >
         {props.note}
       </text>
