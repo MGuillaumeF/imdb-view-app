@@ -33,7 +33,7 @@ export default function Evaluation(props: IEvaluationProps): ReactElement {
         d='M50 200 a 150 150 0 1 0 150 -150'
         fill='transparent'
         stroke={getColor()}
-        strokeWgit idth='20'
+        strokeWidth='20'
       />
       <text
         x='200'
