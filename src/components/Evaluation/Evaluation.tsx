@@ -8,7 +8,25 @@ interface IEvaluationProps {
 }
 
 export default function Evaluation(props: IEvaluationProps): ReactElement {
-  const max = props.max || 10;
+  let max = props.max || 100;
+  let min = props.min || 0;
+  let note = props.note;
+  if (min > max) {
+    console.error('Invalid définition of min and max values')
+    min = 0;
+    max = 100;
+  }
+  if (note > max) {
+    note = max;
+    console.error('Note out of max range')
+  }
+  if (note < min) {
+    note = min;
+    console.error('Note out of min range')
+  }
+  const totalRange = max - min;
+  const valueRange = note - min;
+  const ratio = valueRange / totalRange;
   function getColor() {
     let color = 'white';
     if (props.note > max * 0.75) {
@@ -18,6 +36,8 @@ export default function Evaluation(props: IEvaluationProps): ReactElement {
     }
     return color;
   }
+  function getXValue() {}
+  function gerYValue() {}
   return (
     <svg
       className='Evaluation'
