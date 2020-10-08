@@ -68,8 +68,8 @@ export default function Modal(props: IModalProps): ReactElement {
             className={isFavorite ? 'active' : undefined}
             onClick={() => {
               isFavorite
-                ? Film.addToFavorites(movie.id)
-                : Film.removeFromFavorites(movie.id);
+                ? Film.removeFromFavorites(movie.id)
+                : Film.addToFavorites(movie.id);
               setIsFavorite(!isFavorite);
             }}
           >
