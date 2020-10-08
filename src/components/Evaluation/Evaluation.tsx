@@ -8,6 +8,9 @@ interface IEvaluationProps {
 }
 
 export default function Evaluation(props: IEvaluationProps): ReactElement {
+  const angleOffset = 90;
+  const radius = 150;
+  
   let max = props.max || 100;
   let min = props.min || 0;
   let note = props.note;
@@ -27,6 +30,8 @@ export default function Evaluation(props: IEvaluationProps): ReactElement {
   const totalRange = max - min;
   const valueRange = note - min;
   const ratio = valueRange / totalRange;
+
+  const angle = (valueRange / totalRange) * 360;
   function getColor() {
     let color = 'white';
     if (props.note > max * 0.75) {
@@ -36,8 +41,12 @@ export default function Evaluation(props: IEvaluationProps): ReactElement {
     }
     return color;
   }
-  function getXValue() {}
-  function gerYValue() {}
+  function getXValue() {
+    return Math.cos(angle + angleOffset) * radius;
+  }
+  function gerYValue() {
+    return Math.sin(angle + angleOffset) * radius;
+  }
   return (
     <svg
       className='Evaluation'
