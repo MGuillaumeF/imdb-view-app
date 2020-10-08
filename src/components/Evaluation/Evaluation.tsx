@@ -8,30 +8,30 @@ interface IEvaluationProps {
 }
 
 export default function Evaluation(props: IEvaluationProps): ReactElement {
-  const angleOffset = 90;
+  const angleOffset = Math.PI / 2;
   const radius = 150;
-  
+
   let max = props.max || 100;
   let min = props.min || 0;
   let note = props.note;
   if (min > max) {
-    console.error('Invalid définition of min and max values')
     min = 0;
     max = 100;
+    console.error('Invalid définition of min and max values');
   }
   if (note > max) {
     note = max;
-    console.error('Note out of max range')
+    console.error('Note out of max range');
   }
   if (note < min) {
     note = min;
-    console.error('Note out of min range')
+    console.error('Note out of min range');
   }
   const totalRange = max - min;
   const valueRange = note - min;
   const ratio = valueRange / totalRange;
 
-  const angle = (valueRange / totalRange) * 360;
+  const angle = ratio * 2 * Math.PI;
   function getColor() {
     let color = 'white';
     if (props.note > max * 0.75) {
@@ -42,10 +42,12 @@ export default function Evaluation(props: IEvaluationProps): ReactElement {
     return color;
   }
   function getXValue() {
-    return Math.cos(angle + angleOffset) * radius;
+    console.log('COS', props.note, angle, Math.cos(angle + angleOffset));
+    return Math.cos(angle) * radius;
   }
-  function gerYValue() {
-    return Math.sin(angle + angleOffset) * radius;
+  function getYValue() {
+    console.log('SIN', props.note, angle, Math.sin(angle + angleOffset));
+    return Math.sin(angle) * radius;
   }
   return (
     <svg
@@ -59,7 +61,7 @@ export default function Evaluation(props: IEvaluationProps): ReactElement {
 
       <path d='M0 200 a 200 200 0 1 0 0 -1 z' />
       <path
-        d='M200 50 a 150 150 0 1 0 150 150'
+        d={`M200 50, a 150 150 0 1 0 ${150} ${150}`}
         fill='transparent'
         stroke={getColor()}
         strokeWidth='20'

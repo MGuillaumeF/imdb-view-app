@@ -27,6 +27,7 @@ const getData = async (url: string = '') => {
       releaseDate: movie.release_date,
       id: movie.id,
       voteAverage: movie.vote_average,
+      overview: movie.overview,
     };
   });
 };
