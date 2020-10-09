@@ -1,4 +1,10 @@
-import React, { ChangeEvent, ReactElement, useEffect, useState } from 'react';
+import React, {
+  ChangeEvent,
+  FormEvent,
+  ReactElement,
+  useEffect,
+  useState,
+} from 'react';
 import './SearchBar.sass';
 interface ISearchBarProps {
   onSearch: Function;
@@ -18,8 +24,12 @@ export default function SearchBar(props: ISearchBarProps): ReactElement {
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     setCurrentValue(event.target.value);
   };
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    onClick();
+  };
   return (
-    <div className='SearchBar'>
+    <form className='SearchBar' onSubmit={onSubmit}>
       <input
         placeholder='Search'
         type='text'
@@ -27,6 +37,6 @@ export default function SearchBar(props: ISearchBarProps): ReactElement {
         onChange={onChange}
       />
       <button onClick={onClick}>Search</button>
-    </div>
+    </form>
   );
 }
