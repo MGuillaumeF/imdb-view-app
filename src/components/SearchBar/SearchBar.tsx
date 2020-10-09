@@ -6,12 +6,20 @@ import React, {
   useState,
 } from 'react';
 import './SearchBar.sass';
+
 interface ISearchBarProps {
+  /**
+   * The callback of search bar when enter or button is clicked
+   */
   onSearch: Function;
 }
 
-export default function SearchBar(props: ISearchBarProps): ReactElement {
-  const [currentValue, setCurrentValue] = useState('');
+/**
+ * The Search bar component with 
+ * @param props
+ */
+export default function SearchBar({ onSearch }: ISearchBarProps): ReactElement {
+  const [currentValue, setCurrentValue] = useState<string>('');
   const updateIfemptySearchValue = () => {
     if (currentValue.trim() === '') {
       onClick();
@@ -19,7 +27,7 @@ export default function SearchBar(props: ISearchBarProps): ReactElement {
   };
   useEffect(updateIfemptySearchValue, [currentValue]);
   const onClick = () => {
-    props.onSearch(currentValue);
+    onSearch(currentValue);
   };
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     setCurrentValue(event.target.value);
