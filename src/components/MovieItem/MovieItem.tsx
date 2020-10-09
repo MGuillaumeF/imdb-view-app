@@ -22,7 +22,7 @@ export default function MovieItem(props: IMovieItemProps): ReactElement {
     >
       <img
         alt='poster'
-        src={'https://image.tmdb.org/t/p/w500/' + props.data.posterPath}
+        src={props.data.posterPath ? `https://image.tmdb.org/t/p/w500/${props.data.posterPath}` : 'https://via.placeholder.com/200'}
       />
       <div>
         <Evaluation note={props.data.voteAverage} max={10} />

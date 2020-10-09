@@ -43,11 +43,11 @@ export default function Evaluation(props: IEvaluationProps): ReactElement {
   }
   function getXValue() {
     console.log('COS', props.note, angle, Math.cos(angle + angleOffset));
-    return Math.cos(angle) * radius;
+    return 200 +Math.cos(angle + angleOffset) * radius;
   }
   function getYValue() {
     console.log('SIN', props.note, angle, Math.sin(angle + angleOffset));
-    return Math.sin(angle) * radius;
+    return 50 +Math.sin(angle + angleOffset) * radius;
   }
   return (
     <svg
@@ -59,9 +59,9 @@ export default function Evaluation(props: IEvaluationProps): ReactElement {
       <title>Note</title>
       <desc>Gauge of percent satisfaction</desc>
 
-      <path d='M0 200 a 200 200 0 1 0 0 -1 z' />
+      <path d='M0 200 a 200 200 0 1 0 0 -1 z' />  
       <path
-        d={`M200 50, a 150 150 0 1 0 ${150} ${150}`}
+        d={`M200 50, A 150 150 0 1 0 ${350} ${200}`}
         fill='transparent'
         stroke={getColor()}
         strokeWidth='20'
