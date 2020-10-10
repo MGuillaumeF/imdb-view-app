@@ -45,12 +45,19 @@ export default function Gauge(props: IGauge): ReactElement {
   const ratio = valueRange / totalRange;
 
   const angle = ratio * 2 * Math.PI;
-  function getColor() {
-    let color = "white";
+
+  enum ECOLORS {
+    GREEN = 'green',
+    RED = 'red',
+    WHITE = 'white'
+  }
+
+  function getColor() : ECOLORS {
+    let color = ECOLORS.WHITE;
     if (ratio > 0.75) {
-      color = "green";
+      color = ECOLORS.GREEN;
     } else if (ratio < 0.5) {
-      color = "red";
+      color = ECOLORS.RED;
     }
     return color;
   }
@@ -75,11 +82,11 @@ export default function Gauge(props: IGauge): ReactElement {
 
       <path d="M0 200 a 200 200 0 1 0 0 -1 z" />
       <path
-        d={`M200 50, A 150 150 0 1 0 ${350} ${200}`}
+        d={`M200 50 A 150 150 0 1 0 ${350} ${200}`}
         fill="transparent"
         stroke={getColor()}
         strokeWidth="20"
-      />
+      />      
       <text
         x="200"
         y="200"
