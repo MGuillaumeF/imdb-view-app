@@ -47,12 +47,12 @@ export default function Gauge(props: IGauge): ReactElement {
   const angle = ratio * 2 * Math.PI;
 
   enum ECOLORS {
-    GREEN = 'green',
-    RED = 'red',
-    WHITE = 'white'
+    GREEN = "green",
+    RED = "red",
+    WHITE = "white",
   }
 
-  function getColor() : ECOLORS {
+  function getColor(): ECOLORS {
     let color = ECOLORS.WHITE;
     if (ratio > 0.75) {
       color = ECOLORS.GREEN;
@@ -67,7 +67,7 @@ export default function Gauge(props: IGauge): ReactElement {
   }
   function getYValue() {
     console.log("SIN", note, angle, Math.sin(angle + angleOffset));
-    return 50 + Math.sin(angle + angleOffset) * radius;
+    return 200 - Math.sin(angle + angleOffset) * radius;
   }
   return (
     <svg
@@ -81,12 +81,26 @@ export default function Gauge(props: IGauge): ReactElement {
       <desc>Gauge of percent satisfaction</desc>
 
       <path d="M0 200 a 200 200 0 1 0 0 -1 z" />
-      <path
-        d={`M200 50 A 150 150 0 1 0 ${350} ${200}`}
-        fill="transparent"
-        stroke={getColor()}
-        strokeWidth="20"
-      />      
+      {ratio < 1 ? (
+        <path
+          d={`M200 50 A 150 150 0 ${
+            angle < Math.PI ? 0 : 1
+          } 0 ${getXValue()} ${getYValue()}`}
+          fill="transparent"
+          stroke={getColor()}
+          strokeWidth="20"
+        />
+      ) : (
+        <circle
+          cx="200"
+          cy="200"
+          r="150"
+          fill="transparent"
+          stroke={getColor()}
+          strokeWidth="20"
+        />
+      )}
+
       <text
         x="200"
         y="200"
