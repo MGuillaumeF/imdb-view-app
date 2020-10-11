@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useState,
 } from 'react';
+import Button from '../Button/Button';
 import './SearchBar.sass';
 
 interface ISearchBarProps {
@@ -22,19 +23,19 @@ export default function SearchBar({ onSearch }: ISearchBarProps): ReactElement {
   const [currentValue, setCurrentValue] = useState<string>('');
   const updateIfemptySearchValue = () => {
     if (currentValue.trim() === '') {
-      onClick();
+      onSubmit();
     }
   };
   useEffect(updateIfemptySearchValue, [currentValue]);
-  const onClick = () => {
-    onSearch(currentValue);
-  };
+
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     setCurrentValue(event.target.value);
   };
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    onClick();
+  const onSubmit = (event?: FormEvent<HTMLFormElement>) => {
+    if (event) {
+      event.preventDefault();
+    }
+    onSearch(currentValue);
   };
   return (
     <form className='SearchBar' onSubmit={onSubmit}>
@@ -44,7 +45,7 @@ export default function SearchBar({ onSearch }: ISearchBarProps): ReactElement {
         value={currentValue}
         onChange={onChange}
       />
-      <button onClick={onClick}>Search</button>
+      <Button submit name="Search"/>
     </form>
   );
 }

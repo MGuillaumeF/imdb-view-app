@@ -26,6 +26,10 @@ interface IGauge {
    * To define the color of gauge
    */
   strikeGaugeColor?: string
+  /**
+   * To define the color of text
+   */
+  fontGaugeColor?: string
 }
 
 export default function Gauge(props: IGauge): ReactElement {
@@ -114,7 +118,7 @@ export default function Gauge(props: IGauge): ReactElement {
         textAnchor="middle"
         fontFamily="Helvetica,Verdana, Arial, sans-serif"
         fontSize="100"
-        fill={getColor()}
+        fill={props.fontGaugeColor || getColor()}
       >
         {note}
       </text>
