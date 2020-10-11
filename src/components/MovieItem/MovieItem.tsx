@@ -28,8 +28,10 @@ export default function MovieItem(props: IMovieItemProps): ReactElement {
           width: "3em",
           height: "auto",
           top: "0.5em",
-          left: "0.5em",
+          left: "0.5em"
         }}
+        bgGaugeColor="#222"
+        strikeGaugeColor="white"
       />
       <img
         alt="poster"

@@ -18,6 +18,14 @@ interface IGauge {
    * To add CSS in props
    */
   style?: React.CSSProperties;
+  /**
+   * To define the background color of gauge
+   */
+  bgGaugeColor?: string
+  /**
+   * To define the color of gauge
+   */
+  strikeGaugeColor?: string
 }
 
 export default function Gauge(props: IGauge): ReactElement {
@@ -62,11 +70,9 @@ export default function Gauge(props: IGauge): ReactElement {
     return color;
   }
   function getXValue() {
-    console.log("COS", note, angle, Math.cos(angle + angleOffset));
     return 200 + Math.cos(angle + angleOffset) * radius;
   }
   function getYValue() {
-    console.log("SIN", note, angle, Math.sin(angle + angleOffset));
     return 200 - Math.sin(angle + angleOffset) * radius;
   }
   return (
@@ -80,14 +86,14 @@ export default function Gauge(props: IGauge): ReactElement {
       <title>Note</title>
       <desc>Gauge of percent satisfaction</desc>
 
-      <path d="M0 200 a 200 200 0 1 0 0 -1 z" />
+      <path d="M0 200 a 200 200 0 1 0 0 -1 z" fill={props.bgGaugeColor || '#FFFFFF'} />
       {ratio < 1 ? (
         <path
           d={`M200 50 A 150 150 0 ${
             angle < Math.PI ? 0 : 1
           } 0 ${getXValue()} ${getYValue()}`}
           fill="transparent"
-          stroke={getColor()}
+          stroke={props.strikeGaugeColor || getColor()}
           strokeWidth="20"
         />
       ) : (
@@ -96,7 +102,7 @@ export default function Gauge(props: IGauge): ReactElement {
           cy="200"
           r="150"
           fill="transparent"
-          stroke={getColor()}
+          stroke={props.strikeGaugeColor || getColor()}
           strokeWidth="20"
         />
       )}
@@ -106,7 +112,7 @@ export default function Gauge(props: IGauge): ReactElement {
         y="200"
         dominantBaseline="middle"
         textAnchor="middle"
-        fontFamily="Verdana"
+        fontFamily="Helvetica,Verdana, Arial, sans-serif"
         fontSize="100"
         fill={getColor()}
       >

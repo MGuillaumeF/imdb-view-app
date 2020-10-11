@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch localhost",
+      "name": "Launch FireFox against localhost",
       "type": "firefox",
       "request": "launch",
       "reAttach": true,
@@ -10,9 +10,16 @@
       "webRoot": "${workspaceFolder}"
     },
     {
+      "name": "Launch Chrome against localhost",
       "type": "chrome",
       "request": "launch",
-      "name": "Launch Chrome against localhost",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Launch Edge against localhost",
+      "type": "edge",
+      "request": "launch",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}"
     }
