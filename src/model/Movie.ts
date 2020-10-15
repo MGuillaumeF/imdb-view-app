@@ -9,17 +9,37 @@ export default interface Movie {
   backdrop_path: string;
   overview: string;
 }
-export interface MovieEmpty {
-  title?: string;
-  posterPath?: string;
-  releaseDate?: string;
-  id?: number;
-  voteAverage?: number;
-}
 
 const REACT_APP_TOKEN =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOGZjNmQ3OTVlMzhiNmI1NTdmOWNhN2FhZTFjYzViMyIsInN1YiI6IjVmN2NmNmFmZmRmYzlmMDAzOGI1OTBkNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7mm9P-EFL-HdQVo2gxao0egAaHujxrm3XiuUzWiLnDY';
 const REACT_APP_TMBD_KEY = 'f8fc6d795e38b6b557f9ca7aae1cc5b3';
+
+export const getData = async (url: string = '') => {
+  const response = await axios
+    .get(url.trim() !== '' ? url : 'https://api.themoviedb.org/4/list/1', {
+      headers: {
+        Authorization:
+        `Bearer ${REACT_APP_TOKEN}`,
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
+    .catch((exception) => {
+      console.error(exception);
+      throw exception;
+    });
+  console.log(response);
+  return response.data.results.map((movie: any) => {
+    return {
+      title: movie.title,
+      posterPath: movie.poster_path,
+      releaseDate: movie.release_date,
+      id: movie.id,
+      voteAverage: movie.vote_average,
+      overview: movie.overview,
+    };
+  });
+};
+
 
 export async function search(query: string) {
   const response = await axios.get(

@@ -1,43 +1,15 @@
 import React, { ReactElement, useEffect, useState } from 'react';
-import Movie, { MovieEmpty } from '../../model/Movie';
+import Movie, { getData } from '../../model/Movie';
 import MoviesList from '../MoviesList/MoviesList';
 import SearchBar from '../SearchBar/SearchBar';
-import axios from 'axios';
 import './Home.sass';
 import Modal from '../Modal/Modal';
-
-const getData = async (url: string = '') => {
-  const response = await axios
-    .get(url.trim() !== '' ? url : 'https://api.themoviedb.org/4/list/1', {
-      headers: {
-        Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOGZjNmQ3OTVlMzhiNmI1NTdmOWNhN2FhZTFjYzViMyIsInN1YiI6IjVmN2NmNmFmZmRmYzlmMDAzOGI1OTBkNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7mm9P-EFL-HdQVo2gxao0egAaHujxrm3XiuUzWiLnDY',
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-    })
-    .catch((exception) => {
-      console.error(exception);
-      throw exception;
-    });
-  console.log(response);
-  return response.data.results.map((movie: any) => {
-    return {
-      title: movie.title,
-      posterPath: movie.poster_path,
-      releaseDate: movie.release_date,
-      id: movie.id,
-      voteAverage: movie.vote_average,
-      overview: movie.overview,
-    };
-  });
-};
+import MovieShow from '../MovieShow/MovieShow';
 
 export default function Home(): ReactElement {
-  const EMPTY_MOVIES_LIST: Movie[] = [];
-  const EMPTY_MOVIES: MovieEmpty = {};
   const [search, setSearch] = useState('');
-  const [movieShowed, setMovieShowed] = useState(EMPTY_MOVIES);
-  const [movies, setMovies] = useState(EMPTY_MOVIES_LIST);
+  const [movieShowed, setMovieShowed] = useState<Movie>();
+  const [movies, setMovies] = useState<Movie[]>();
   useEffect(() => {
     getData().then((movies) => {
       return setMovies(movies);
@@ -63,25 +35,28 @@ export default function Home(): ReactElement {
     }
   }
   function showMovie(movieId: number) {
-    const mov = movies.find((mov) => {
-      return movieId === mov.id;
-    });
-    setMovieShowed(mov || EMPTY_MOVIES);
+    if (movies) {
+      const mov = movies.find((mov) => {
+        return movieId === mov.id;
+      });
+      setMovieShowed(mov);
+    }
   }
   return (
     <div className='Home'>
       <SearchBar onSearch={getSearch} />
-      <MoviesList search={search} movies={movies} onClickItem={showMovie} />
-      {movieShowed.id &&
+      {movies ? <MoviesList search={search} movies={movies} onClickItem={showMovie} /> : null}
+      {movieShowed && movieShowed.id &&
       movieShowed.posterPath &&
       movieShowed.releaseDate &&
       movieShowed.title ? (
         <Modal
-          data={movieShowed as Movie}
           onClose={() => {
-            setMovieShowed(EMPTY_MOVIES);
+            setMovieShowed(undefined);
           }}
-        />
+        >
+          <MovieShow data={movieShowed as Movie} />
+          </Modal>
       ) : null}
     </div>
   );

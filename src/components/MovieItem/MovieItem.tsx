@@ -3,6 +3,7 @@ import Movie from "../../model/Movie";
 import * as Film from "../../model/Movie";
 import Gauge from "../Gauge/Gauge";
 import "./MovieItem.sass";
+
 interface IMovieItemProps {
   data: Movie;
   onClick: Function;
@@ -37,7 +38,7 @@ export default function MovieItem(props: IMovieItemProps): ReactElement {
         src={
           props.data.posterPath
             ? `https://image.tmdb.org/t/p/w500/${props.data.posterPath}`
-            : "https://via.placeholder.com/200"
+            : require('../../res/icons/no_poster.svg')
         }
       />
       <div>
