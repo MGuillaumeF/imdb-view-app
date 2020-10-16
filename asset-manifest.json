@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.e2fe31f9.chunk.css",
-    "main.js": "/static/js/main.e933b795.chunk.js",
-    "main.js.map": "/static/js/main.e933b795.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.adb27058.js",
-    "runtime-main.js.map": "/static/js/runtime-main.adb27058.js.map",
-    "static/js/2.1b04cc3a.chunk.js": "/static/js/2.1b04cc3a.chunk.js",
-    "static/js/2.1b04cc3a.chunk.js.map": "/static/js/2.1b04cc3a.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.6533bd3bd947cee4fc5091daa815a08f.js": "/precache-manifest.6533bd3bd947cee4fc5091daa815a08f.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.e2fe31f9.chunk.css.map": "/static/css/main.e2fe31f9.chunk.css.map",
-    "static/js/2.1b04cc3a.chunk.js.LICENSE.txt": "/static/js/2.1b04cc3a.chunk.js.LICENSE.txt",
-    "static/media/no_actor.svg": "/static/media/no_actor.3f6cf679.svg",
-    "static/media/no_poster.svg": "/static/media/no_poster.80fa0699.svg"
+    "main.css": "/imdb-view-app/static/css/main.e2fe31f9.chunk.css",
+    "main.js": "/imdb-view-app/static/js/main.99e26be0.chunk.js",
+    "main.js.map": "/imdb-view-app/static/js/main.99e26be0.chunk.js.map",
+    "runtime-main.js": "/imdb-view-app/static/js/runtime-main.84edaaba.js",
+    "runtime-main.js.map": "/imdb-view-app/static/js/runtime-main.84edaaba.js.map",
+    "static/js/2.1b04cc3a.chunk.js": "/imdb-view-app/static/js/2.1b04cc3a.chunk.js",
+    "static/js/2.1b04cc3a.chunk.js.map": "/imdb-view-app/static/js/2.1b04cc3a.chunk.js.map",
+    "index.html": "/imdb-view-app/index.html",
+    "precache-manifest.52207d5f1f408d7e7d870702f92b9f1f.js": "/imdb-view-app/precache-manifest.52207d5f1f408d7e7d870702f92b9f1f.js",
+    "service-worker.js": "/imdb-view-app/service-worker.js",
+    "static/css/main.e2fe31f9.chunk.css.map": "/imdb-view-app/static/css/main.e2fe31f9.chunk.css.map",
+    "static/js/2.1b04cc3a.chunk.js.LICENSE.txt": "/imdb-view-app/static/js/2.1b04cc3a.chunk.js.LICENSE.txt",
+    "static/media/no_actor.svg": "/imdb-view-app/static/media/no_actor.3f6cf679.svg",
+    "static/media/no_poster.svg": "/imdb-view-app/static/media/no_poster.80fa0699.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.adb27058.js",
+    "static/js/runtime-main.84edaaba.js",
     "static/js/2.1b04cc3a.chunk.js",
     "static/css/main.e2fe31f9.chunk.css",
-    "static/js/main.e933b795.chunk.js"
+    "static/js/main.99e26be0.chunk.js"
   ]
 }
