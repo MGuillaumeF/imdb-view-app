@@ -20,7 +20,7 @@
   },
   "scripts": {
     "deploy": "npm run build&&npm run build-doc&&npm run gh-pages",
-    "gh-pages" : "gh-pages -d build",
+    "gh-pages": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
