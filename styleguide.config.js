@@ -7,5 +7,5 @@ module.exports = {
     webpackConfig.output.chunkFilename = 'build/[name].js';
     return webpackConfig;
   },
-  styleguideDir: 'doc',
+  styleguideDir: 'docs',
 };
