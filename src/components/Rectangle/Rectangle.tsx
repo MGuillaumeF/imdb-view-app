@@ -16,6 +16,7 @@ export default function Rectangle(props: IRectangle): ReactElement {
       viewBox={`0 0 ${props.width} ${props.height}`}
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
+      className='Rectangle'
     >
       <defs>
         <linearGradient id={id} x1="0%" y1="0%" x2="45%" y2="45%">

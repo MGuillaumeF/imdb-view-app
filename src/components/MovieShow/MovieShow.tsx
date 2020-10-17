@@ -1,4 +1,4 @@
-import React, { Fragment, ReactElement, useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 
 import Movie from "../../model/Movie";
 import * as Film from "../../model/Movie";
@@ -37,7 +37,7 @@ function MovieShow(props: Props): ReactElement {
       fetchMovieDetails(props.data.id);
     }, [props.data.id]);
   return (
-    <Fragment>
+    <div className="MovieShow">
       <h1>{props.data.title}</h1>
       <button
         className={isFavorite ? "active" : undefined}
@@ -55,11 +55,7 @@ function MovieShow(props: Props): ReactElement {
         <img
           alt="banner of movie"
           className="banner"
-          src={
-            infos.details.backdrop_path
-              ? `https://image.tmdb.org/t/p/w500${infos.details.backdrop_path}`
-              : "https://via.placeholder.com/200"
-          }
+          src={`https://image.tmdb.org/t/p/w500${infos.details.backdrop_path}`}
         />
       ) : null}
       <div
@@ -69,15 +65,13 @@ function MovieShow(props: Props): ReactElement {
           padding: "2em",
         }}
       >
+
+      {props.data.posterPath ? (
         <img
           className="poster"
           alt="poster"
-          src={
-            props.data.posterPath
-              ? `https://image.tmdb.org/t/p/w500/${props.data.posterPath}`
-              : require('../../res/icons/no_poster.svg')
-          }
-        />
+          src={`https://image.tmdb.org/t/p/w500/${props.data.posterPath}`}
+        />): null}
         <ul>
           <li>
             <strong>Date</strong> : {props.data.releaseDate}
@@ -95,7 +89,7 @@ function MovieShow(props: Props): ReactElement {
         </ul>
         {infos.cast ? <ActorList actors={infos.cast} /> : null}
       </div>
-    </Fragment>
+    </div>
   );
 }
 
