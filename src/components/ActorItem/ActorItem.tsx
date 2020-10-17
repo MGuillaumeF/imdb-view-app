@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import Rectangle from "../Rectangle/Rectangle";
 import "./ActorItem.sass";
 export interface IActorItemProps {
   picture?: string;
@@ -8,10 +9,14 @@ export interface IActorItemProps {
 function ActorItem(props: IActorItemProps): ReactElement {
   return (
     <div className="ActorItem">
-      <img
+      { 
+        props.person.profile_path ?
+        <img
         alt="actor"
-        src={props.person.profile_path? `https://image.tmdb.org/t/p/w500${props.person.profile_path}` : require('../../res/icons/no_actor.svg')}
-      />
+        src={`https://image.tmdb.org/t/p/w500${props.person.profile_path}`}
+        />
+        
+            : <Rectangle text='Actor not found'  textColor='#FFF' width={500} height={750} secondaryColor='#00FFFF' primaryColor='#0000FF'/>  }
 
       <p>
         <strong>{props.person.name}</strong>

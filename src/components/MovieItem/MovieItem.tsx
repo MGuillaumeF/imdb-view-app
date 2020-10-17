@@ -3,6 +3,7 @@ import Movie from "../../model/Movie";
 import * as Film from "../../model/Movie";
 import Gauge from "../Gauge/Gauge";
 import "./MovieItem.sass";
+import Rectangle from "../Rectangle/Rectangle";
 
 interface IMovieItemProps {
   data: Movie;
@@ -33,14 +34,11 @@ export default function MovieItem(props: IMovieItemProps): ReactElement {
         }}
         bgGaugeColor="#222"
       />
+      { props.data.posterPath ?
       <img
         alt="poster"
-        src={
-          props.data.posterPath
-            ? `https://image.tmdb.org/t/p/w500/${props.data.posterPath}`
-            : require('../../res/icons/no_poster.svg')
-        }
-      />
+        src={`https://image.tmdb.org/t/p/w500/${props.data.posterPath}`}
+      /> : <Rectangle text='Poster not found' textColor='white' width={500}  height={750} primaryColor="#FF0000" secondaryColor="#FFFF00"/>}
       <div>
         <h3>{props.data.title}</h3>
         <p>{props.data.releaseDate}</p>
