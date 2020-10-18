@@ -1,11 +1,29 @@
 import React, { ReactElement } from "react";
 
 interface IRectangle {
+  /**
+   * The main color of rectangle
+   */
   primaryColor: string;
+    /**
+   * The sencond color of rectangle
+   */
   secondaryColor: string;
+  /**
+   * The color of text in the middle of rectangle
+   */
   textColor: string;
+  /**
+   * The Height of SVG
+   */
   height: number;
+  /**
+   * The Width of SVG
+   */
   width: number;
+  /**
+   * Th text to print to the user
+   */
   text: string;
 }
 

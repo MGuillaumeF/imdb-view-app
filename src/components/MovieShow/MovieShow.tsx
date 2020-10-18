@@ -4,6 +4,7 @@ import Movie from "../../model/Movie";
 import * as Film from "../../model/Movie";
 import ActorList from "../ActorList/ActorList";
 import './MovieShow.sass'
+const icon=require('../../icons/heart.svg')
 
 interface Props {
 
@@ -48,7 +49,7 @@ function MovieShow(props: Props): ReactElement {
           setIsFavorite(!isFavorite);
         }}
       >
-        {!isFavorite ? "+" : "-"}
+        <img src={icon} alt="favorite icone"/>
       </button>
 
       {infos.details && infos.details.backdrop_path ? (
