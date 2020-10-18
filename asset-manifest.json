@@ -1,24 +1,23 @@
 {
   "files": {
-    "main.css": "/imdb-view-app/static/css/main.e2fe31f9.chunk.css",
-    "main.js": "/imdb-view-app/static/js/main.99e26be0.chunk.js",
-    "main.js.map": "/imdb-view-app/static/js/main.99e26be0.chunk.js.map",
+    "main.css": "/imdb-view-app/static/css/main.57575606.chunk.css",
+    "main.js": "/imdb-view-app/static/js/main.3e56f739.chunk.js",
+    "main.js.map": "/imdb-view-app/static/js/main.3e56f739.chunk.js.map",
     "runtime-main.js": "/imdb-view-app/static/js/runtime-main.84edaaba.js",
     "runtime-main.js.map": "/imdb-view-app/static/js/runtime-main.84edaaba.js.map",
-    "static/js/2.1b04cc3a.chunk.js": "/imdb-view-app/static/js/2.1b04cc3a.chunk.js",
-    "static/js/2.1b04cc3a.chunk.js.map": "/imdb-view-app/static/js/2.1b04cc3a.chunk.js.map",
+    "static/js/2.8b498b60.chunk.js": "/imdb-view-app/static/js/2.8b498b60.chunk.js",
+    "static/js/2.8b498b60.chunk.js.map": "/imdb-view-app/static/js/2.8b498b60.chunk.js.map",
     "index.html": "/imdb-view-app/index.html",
-    "precache-manifest.52207d5f1f408d7e7d870702f92b9f1f.js": "/imdb-view-app/precache-manifest.52207d5f1f408d7e7d870702f92b9f1f.js",
+    "precache-manifest.ad7f3905e254fe46902ce4f2ed8bcd76.js": "/imdb-view-app/precache-manifest.ad7f3905e254fe46902ce4f2ed8bcd76.js",
     "service-worker.js": "/imdb-view-app/service-worker.js",
-    "static/css/main.e2fe31f9.chunk.css.map": "/imdb-view-app/static/css/main.e2fe31f9.chunk.css.map",
-    "static/js/2.1b04cc3a.chunk.js.LICENSE.txt": "/imdb-view-app/static/js/2.1b04cc3a.chunk.js.LICENSE.txt",
-    "static/media/no_actor.svg": "/imdb-view-app/static/media/no_actor.3f6cf679.svg",
-    "static/media/no_poster.svg": "/imdb-view-app/static/media/no_poster.80fa0699.svg"
+    "static/css/main.57575606.chunk.css.map": "/imdb-view-app/static/css/main.57575606.chunk.css.map",
+    "static/js/2.8b498b60.chunk.js.LICENSE.txt": "/imdb-view-app/static/js/2.8b498b60.chunk.js.LICENSE.txt",
+    "static/media/heart.svg": "/imdb-view-app/static/media/heart.ad67b768.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.84edaaba.js",
-    "static/js/2.1b04cc3a.chunk.js",
-    "static/css/main.e2fe31f9.chunk.css",
-    "static/js/main.99e26be0.chunk.js"
+    "static/js/2.8b498b60.chunk.js",
+    "static/css/main.57575606.chunk.css",
+    "static/js/main.3e56f739.chunk.js"
   ]
 }
