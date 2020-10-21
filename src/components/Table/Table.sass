@@ -15,18 +15,16 @@ table
                 th, td 
                     padding-bottom: 1em
                     position: relative
-                    &::after
-                        width: 100%
-                        background-color: #404040 
-                        content : '^'
-                        position: absolute
-                        bottom: 0
-                        height: 12px
-                        left: 0
-                        text-align: center
-                        &:hover
-                            display: auto
-                            background-color: red 
+                    &:hover::after
+                            width: 100%
+                            content : '^'
+                            position: absolute
+                            bottom: 0
+                            height: 12px
+                            left: 0
+                            text-align: center
+                    &:active
+                        opacity: 0.8
 
                         
             th

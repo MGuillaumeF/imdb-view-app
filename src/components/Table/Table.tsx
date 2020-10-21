@@ -1,42 +1,16 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useState } from 'react'
 import './Table.sass'
+import TableBody from './TPart/TBody/TBody';
+import TableFooter from './TPart/TFoot/TFoot';
+import TableHeader from './TPart/THead/THead';
+import { ITRow } from './TRow/TRow';
 
-interface ICell {
-    id : string;
-    className? : string;
-    style? : React.CSSProperties;
-    content : string;
-    onClick? : Function;
-    header? : boolean;
-}
-
-export interface IRow {
-    id : string;
-    className? : string;
-    style? : React.CSSProperties;
-    onClick? : Function;
-    cells : ICell[]
-}
-
-function DataCell(props: {children : React.ReactNode}): ReactElement {
-    return <td>{props.children}</td>
-}
-function HeaderCell(props: {children : React.ReactNode}): ReactElement {
-    return <th>{props.children}</th>
+function copy(data : any) {
+    return JSON.parse(JSON.stringify(data));
 }
 
 
-function Cell(props: ICell): ReactElement {
-    const Comp = props.header ? HeaderCell : DataCell;
-    return <Comp>{props.content}</Comp>
-}
 
-function Row(props: IRow): ReactElement {
-return <tr id={props.id} className={props.className}>{props.cells.map((cell)=>{
-    return <Cell key={cell.id} id={cell.id} content={cell.content} onClick={cell.onClick} header={cell.header} />
-
-})}</tr>
-}
 
 interface ITable {
     id? : string;
@@ -44,44 +18,60 @@ interface ITable {
     style? : React.CSSProperties;
     onClick? : Function;
     onChange? : Function;
-    hRows? : IRow[];
-    bRows? : IRow[];
-    fRows? : IRow[];
+    hRows? : ITRow[];
+    bRows? : ITRow[];
+    fRows? : ITRow[];
     isSortable? : boolean;
     isFiltrable? : boolean;
 }
 
 
-function TableHeader({isSortable, hRows}: ITable): ReactElement {
-    return <thead>
-    {
-        hRows ? hRows.map((row : IRow) => {return <Row className={isSortable ? 'sortable' : undefined} key={row.id} id={row.id} cells={row.cells} />})  : null
-    }
-    </thead>
 
-}
-
-function TableBody({bRows}: ITable): ReactElement {
-    return <tbody>
-    {
-        bRows ? bRows.map((row : IRow) => {return <Row key={row.id} id={row.id} cells={row.cells} />})  : null
-    }
-    </tbody>
-}
-function TableFooter({fRows}: ITable): ReactElement {
-    return <tbody>
-    {
-        fRows ? fRows.map((row : IRow) => {return <Row key={row.id} id={row.id} cells={row.cells} />})  : null
-    }
-    </tbody>
-}
 
 function Table({ isSortable, hRows, bRows, fRows, ...props}: ITable): ReactElement {
+    const [displayedRows, setDisplayedRows] = useState(copy(bRows || []));
+
+    function sortRowsByCol(rows : any, col : any, alpha : boolean) {
+        let tb = rows.map((element : any, index : number) => {
+            return {content : element.cells[col.index].content.toLowerCase(), rowIndex : index}
+        })
+        tb.sort((a : any, b : any) => {
+            const direction = alpha ? -1 : 1 
+            return direction * a.content.localeCompare(b.content);
+        })
+        let startRows = copy(rows);
+        let tmpRows : any = [];
+        tb.forEach((element : any, index : number) => {
+            tmpRows.push(startRows[element.rowIndex])
+        });
+        return copy(tmpRows);
+    }
+
+    function onSort(sortMap : any) {
+        let tb : any = [];
+        sortMap.forEach((value : any, key : string, map : Map<string, any>) => {
+            tb.push(value);
+        });
+
+        tb.sort((a : any, b : any) => {
+            if (a.priority < b.priority) {
+                return -1
+            } else if (a.priority > b.priority) {
+                return 1
+            }
+            return 0
+        })
+        let tmpRows = copy(displayedRows);
+        tb.forEach((element : any, index : number) => {
+            tmpRows = sortRowsByCol(tmpRows, element.col, element.alpha);
+        });
+        setDisplayedRows(tmpRows);
+    }
     return (
         <table>
-            <TableHeader isSortable={isSortable} hRows={hRows}/>
-            <TableBody bRows={bRows}/>
-            <TableFooter fRows={fRows}/>            
+            <TableHeader isSortable={!!isSortable} rows={hRows || []} onSort={onSort}/>
+            <TableBody rows={displayedRows}/>
+            <TableFooter rows={fRows || []}/>            
         </table>
     )
 }
