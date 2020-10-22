@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import './Table.sass'
 import TableBody from './TPart/TBody/TBody';
 import TableFooter from './TPart/TFoot/TFoot';
@@ -29,15 +29,30 @@ interface ITable {
 
 
 function Table({ isSortable, hRows, bRows, fRows, ...props}: ITable): ReactElement {
-    const [displayedRows, setDisplayedRows] = useState(copy(bRows || []));
+    const [displayedRows, setDisplayedRows] = useState<ITRow[]>(bRows || []);
 
+    useEffect(() => {
+        setDisplayedRows(bRows || [])
+    }, [bRows])
     function sortRowsByCol(rows : any, col : any, alpha : boolean) {
         let tb = rows.map((element : any, index : number) => {
-            return {content : element.cells[col.index].content.toLowerCase(), rowIndex : index}
+            return {content : element.cells[col.index].content, rowIndex : index}
         })
         tb.sort((a : any, b : any) => {
             const direction = alpha ? -1 : 1 
-            return direction * a.content.localeCompare(b.content);
+            let r = 0;
+            const aC = a.content;
+            const bC = b.content;
+            if (typeof aC === 'string' && typeof bC === 'string') {
+                r = aC.toLowerCase().localeCompare(bC.toLowerCase());
+            } else if (!isNaN(aC) && !isNaN(bC)) {
+                if (aC > bC) {
+                    r = -1
+                } else if (aC < bC) {
+                    r = 1
+                }
+            }
+            return r * direction;
         })
         let startRows = copy(rows);
         let tmpRows : any = [];
@@ -70,7 +85,7 @@ function Table({ isSortable, hRows, bRows, fRows, ...props}: ITable): ReactEleme
     return (
         <table>
             <TableHeader isSortable={!!isSortable} rows={hRows || []} onSort={onSort}/>
-            <TableBody rows={displayedRows}/>
+            <TableBody rows={displayedRows || []}/>
             <TableFooter rows={fRows || []}/>            
         </table>
     )
