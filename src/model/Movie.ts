@@ -14,7 +14,7 @@ const REACT_APP_TOKEN =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOGZjNmQ3OTVlMzhiNmI1NTdmOWNhN2FhZTFjYzViMyIsInN1YiI6IjVmN2NmNmFmZmRmYzlmMDAzOGI1OTBkNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7mm9P-EFL-HdQVo2gxao0egAaHujxrm3XiuUzWiLnDY';
 const REACT_APP_TMBD_KEY = 'f8fc6d795e38b6b557f9ca7aae1cc5b3';
 
-export const getData = async (url: string = '') => {
+export const getData = async (url: string = '') : Promise<Movie[]> => {
   const response = await axios
     .get(url.trim() !== '' ? url : 'https://api.themoviedb.org/4/list/1', {
       headers: {
@@ -41,7 +41,7 @@ export const getData = async (url: string = '') => {
 };
 
 
-export async function search(query: string) {
+export async function search(query: string) : Promise<Movie[]> {
   const response = await axios.get(
     'https://api.themoviedb.org/4/search/movie',
     {
@@ -56,7 +56,16 @@ export async function search(query: string) {
     }
   );
 
-  return response.data;
+  return response.data.results.map((movie: any) => {
+    return {
+      title: movie.title,
+      posterPath: movie.poster_path,
+      releaseDate: movie.release_date,
+      id: movie.id,
+      voteAverage: movie.vote_average,
+      overview: movie.overview,
+    };
+  });
 }
 
 export async function findDetails(movieId: number) {

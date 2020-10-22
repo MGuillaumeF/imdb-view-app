@@ -8,7 +8,7 @@ import React, {
 import Button from '../Button/Button';
 import './SearchBar.sass';
 
-interface ISearchBarProps {
+interface ISearchBarProps extends React.HTMLProps<HTMLFormElement>{
   /**
    * The callback of search bar when enter or button is clicked
    */
