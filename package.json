@@ -26,7 +26,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-doc": "npx styleguidist build",
-    "dev-doc": "npx styleguidist server"
+    "dev-doc": "npx styleguidist server",
+    "prettier": "npx prettier --write ."
   },
   "eslintConfig": {
     "extends": "react-app"
