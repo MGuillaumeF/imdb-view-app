@@ -1,14 +1,14 @@
-import React, { ReactElement, useEffect, useState } from "react";
-import Movie from "../../model/Movie";
-import * as Data from "../../model/Movie";
-import MoviesList from "../MoviesList/MoviesList";
-import SearchBar from "../SearchBar/SearchBar";
-import "./Home.sass";
-import Modal from "../Modal/Modal";
-import MovieShow from "../MovieShow/MovieShow";
-import Table from "../Table/Table";
-import { ITRow } from "../Table/TRow/TRow";
-import MenuBar from "../MenuBar/MenuBar";
+import React, { ReactElement, useEffect, useState } from 'react';
+import Movie from '../../model/Movie';
+import * as Data from '../../model/Movie';
+import MoviesList from '../MoviesList/MoviesList';
+import SearchBar from '../SearchBar/SearchBar';
+import './Home.sass';
+import Modal from '../Modal/Modal';
+import MovieShow from '../MovieShow/MovieShow';
+import Table from '../Table/Table';
+import { ITRow } from '../Table/TRow/TRow';
+import MenuBar from '../MenuBar/MenuBar';
 
 function moviesToTableData(data: Movie[] | undefined) {
   const hRows: ITRow[] = [];
@@ -18,13 +18,14 @@ function moviesToTableData(data: Movie[] | undefined) {
       const cols = Object.keys(movie);
       if (index === 0) {
         hRows.push({
-          id: "hr_0",
+          id: 'hr_0',
           cells: cols.map((col) => {
             return {
               id: `hr_0_${col}`,
               content: col,
+              header: true
             };
-          }),
+          })
         });
       }
       const tmp: any = movie;
@@ -33,21 +34,21 @@ function moviesToTableData(data: Movie[] | undefined) {
         cells: cols.map((col) => {
           return {
             id: `br_${index}_${col}`,
-            content: tmp[col],
+            content: tmp[col]
           };
-        }),
+        })
       });
     });
   }
 
   return {
     hRows,
-    bRows,
+    bRows
   };
 }
 
 export default function Home(): ReactElement {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [movieShowed, setMovieShowed] = useState<Movie>();
   const [movies, setMovies] = useState<Movie[]>();
   useEffect(() => {
@@ -60,7 +61,7 @@ export default function Home(): ReactElement {
       console.log(value);
       setSearch(value);
       let data: Promise<any>;
-      if (value.trim() !== "") {
+      if (value.trim() !== '') {
         data = Data.search(encodeURIComponent(value));
       } else {
         data = Data.getData();
@@ -80,7 +81,7 @@ export default function Home(): ReactElement {
   }
   const movieTableData = moviesToTableData(movies);
   return (
-    <div className="Home">
+    <div className='Home'>
       <MenuBar />
       <SearchBar onSearch={getSearch} />
       {movieTableData.bRows ? (

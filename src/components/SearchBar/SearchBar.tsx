@@ -3,12 +3,12 @@ import React, {
   FormEvent,
   ReactElement,
   useEffect,
-  useState,
+  useState
 } from 'react';
 import Button from '../Button/Button';
 import './SearchBar.sass';
 
-interface ISearchBarProps extends React.HTMLProps<HTMLFormElement>{
+interface ISearchBarProps extends React.HTMLProps<HTMLFormElement> {
   /**
    * The callback of search bar when enter or button is clicked
    */
@@ -16,7 +16,7 @@ interface ISearchBarProps extends React.HTMLProps<HTMLFormElement>{
 }
 
 /**
- * The Search bar component with 
+ * The Search bar component with
  * @param props
  */
 export default function SearchBar({ onSearch }: ISearchBarProps): ReactElement {
@@ -45,7 +45,7 @@ export default function SearchBar({ onSearch }: ISearchBarProps): ReactElement {
         value={currentValue}
         onChange={onChange}
       />
-      <Button submit name="Search"/>
+      <Button submit name='Search' />
     </form>
   );
 }

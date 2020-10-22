@@ -14,14 +14,13 @@ const REACT_APP_TOKEN =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOGZjNmQ3OTVlMzhiNmI1NTdmOWNhN2FhZTFjYzViMyIsInN1YiI6IjVmN2NmNmFmZmRmYzlmMDAzOGI1OTBkNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7mm9P-EFL-HdQVo2gxao0egAaHujxrm3XiuUzWiLnDY';
 const REACT_APP_TMBD_KEY = 'f8fc6d795e38b6b557f9ca7aae1cc5b3';
 
-export const getData = async (url: string = '') : Promise<Movie[]> => {
+export const getData = async (url: string = ''): Promise<Movie[]> => {
   const response = await axios
     .get(url.trim() !== '' ? url : 'https://api.themoviedb.org/4/list/1', {
       headers: {
-        Authorization:
-        `Bearer ${REACT_APP_TOKEN}`,
-        'Content-Type': 'application/json;charset=utf-8',
-      },
+        Authorization: `Bearer ${REACT_APP_TOKEN}`,
+        'Content-Type': 'application/json;charset=utf-8'
+      }
     })
     .catch((exception) => {
       console.error(exception);
@@ -35,24 +34,23 @@ export const getData = async (url: string = '') : Promise<Movie[]> => {
       releaseDate: movie.release_date,
       id: movie.id,
       voteAverage: movie.vote_average,
-      overview: movie.overview,
+      overview: movie.overview
     };
   });
 };
 
-
-export async function search(query: string) : Promise<Movie[]> {
+export async function search(query: string): Promise<Movie[]> {
   const response = await axios.get(
     'https://api.themoviedb.org/4/search/movie',
     {
       params: {
         language: 'fr-FR',
-        query,
+        query
       },
       headers: {
         Authorization: 'Bearer ' + REACT_APP_TOKEN,
-        'Content-Type': 'application/json;charset=utf-8',
-      },
+        'Content-Type': 'application/json;charset=utf-8'
+      }
     }
   );
 
@@ -63,7 +61,7 @@ export async function search(query: string) : Promise<Movie[]> {
       releaseDate: movie.release_date,
       id: movie.id,
       voteAverage: movie.vote_average,
-      overview: movie.overview,
+      overview: movie.overview
     };
   });
 }
@@ -74,12 +72,12 @@ export async function findDetails(movieId: number) {
     {
       params: {
         language: 'fr-FR',
-        api_key: REACT_APP_TMBD_KEY,
+        api_key: REACT_APP_TMBD_KEY
       },
       headers: {
         Authorization: 'Bearer ' + REACT_APP_TOKEN,
-        'Content-Type': 'application/json;charset=utf-8',
-      },
+        'Content-Type': 'application/json;charset=utf-8'
+      }
     }
   );
 
@@ -92,12 +90,12 @@ export async function findCast(movieId: number) {
     {
       params: {
         language: 'fr-FR',
-        api_key: REACT_APP_TMBD_KEY,
+        api_key: REACT_APP_TMBD_KEY
       },
       headers: {
         Authorization: 'Bearer ' + REACT_APP_TOKEN,
-        'Content-Type': 'application/json;charset=utf-8',
-      },
+        'Content-Type': 'application/json;charset=utf-8'
+      }
     }
   );
 
@@ -111,12 +109,12 @@ export async function getNowPlaying(movieId: number) {
       params: {
         language: 'fr-FR',
         api_key: REACT_APP_TMBD_KEY,
-        region: 'FR',
+        region: 'FR'
       },
       headers: {
         Authorization: 'Bearer ' + REACT_APP_TOKEN,
-        'Content-Type': 'application/json;charset=utf-8',
-      },
+        'Content-Type': 'application/json;charset=utf-8'
+      }
     }
   );
 

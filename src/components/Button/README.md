@@ -8,7 +8,7 @@ function CallerComponent() {
   };
   return (
     <React.Fragment>
-      <Button name="Button" onClick={onClick} />
+      <Button name='Button' onClick={onClick} />
       <p>{`The button has been clicked : "${state}" times`}</p>
     </React.Fragment>
   );

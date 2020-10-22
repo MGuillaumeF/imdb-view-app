@@ -1,5 +1,5 @@
-import React, { CSSProperties, ReactElement } from "react";
-import "./Button.sass";
+import React, { CSSProperties, ReactElement } from 'react';
+import './Button.sass';
 
 interface IButtonProps {
   /**
@@ -33,30 +33,30 @@ export default function Button({
   submit,
   className,
   onClick,
-  style,
+  style
 }: IButtonProps): ReactElement {
   return (
     <>
       {submit ? (
         <input
-          type="submit"
+          type='submit'
           value={name}
-          className={className || "Button"}
+          className={className || 'Button'}
           onClick={() => {
-              if (onClick) {
-                  onClick();
-              }
+            if (onClick) {
+              onClick();
+            }
           }}
           style={{ ...style }}
         />
       ) : (
         <button
-          className={className || "Button"}
+          className={className || 'Button'}
           onClick={() => {
             if (onClick) {
-                onClick();
+              onClick();
             }
-            }}
+          }}
           style={{ ...style }}
         >
           {name}
