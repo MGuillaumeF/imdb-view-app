@@ -1,8 +1,8 @@
 import React, { ReactElement, useState } from 'react';
 import TRow, { ITRow } from '../../TRow/TRow';
 
-interface ITableHeader {
-  rows: ITRow[];
+interface ITableHeader extends React.HTMLProps<HTMLTableSectionElement> {
+  dataRows: ITRow[];
   isSortable: boolean;
   onSort: Function;
 }
@@ -14,8 +14,9 @@ interface ISort {
 }
 export default function TableHeader({
   isSortable,
-  rows,
-  onSort
+  dataRows,
+  onSort,
+  ...props
 }: ITableHeader): ReactElement {
   const [priority, setPriority] = useState(0);
   const [sort, setSort] = useState<Map<string, ISort>>(
@@ -38,12 +39,12 @@ export default function TableHeader({
     onSort(tempMap);
   }
   return (
-    <thead>
-      {rows
-        ? rows.map((row: ITRow, index: number) => {
+    <thead {...props}>
+      {dataRows
+        ? dataRows.map((row: ITRow, index: number) => {
             return (
               <TRow
-                onClick={index === 0 ? onClick : undefined}
+              onClickOnRow={index === 0 ? onClick : undefined}
                 className={isSortable && index === 0 ? 'sortable' : undefined}
                 key={row.id}
                 id={row.id}

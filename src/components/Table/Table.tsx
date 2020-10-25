@@ -86,7 +86,7 @@ function Table({
     <table>
       <TableHeader
         isSortable={!!isSortable}
-        rows={hRows || []}
+        dataRows={hRows || []}
         onSort={onSort}
       />
       <TableBody rows={displayedRows || []} />

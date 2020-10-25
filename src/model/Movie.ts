@@ -17,6 +17,9 @@ const REACT_APP_TMBD_KEY = 'f8fc6d795e38b6b557f9ca7aae1cc5b3';
 export const getData = async (url: string = ''): Promise<Movie[]> => {
   const response = await axios
     .get(url.trim() !== '' ? url : 'https://api.themoviedb.org/4/list/1', {
+      params: {
+        language: 'fr-FR'
+      },
       headers: {
         Authorization: `Bearer ${REACT_APP_TOKEN}`,
         'Content-Type': 'application/json;charset=utf-8'

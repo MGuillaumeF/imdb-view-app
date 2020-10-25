@@ -62,7 +62,7 @@ export default function Home(): ReactElement {
       setSearch(value);
       let data: Promise<any>;
       if (value.trim() !== '') {
-        data = Data.search(encodeURIComponent(value));
+        data = Data.search(value);
       } else {
         data = Data.getData();
       }
