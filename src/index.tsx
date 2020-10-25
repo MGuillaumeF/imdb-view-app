@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.sass';
 import './fonts.sass';
 import * as serviceWorker from './serviceWorker';
+import './i18n';
 import Home from './components/Home/Home';
 
 ReactDOM.render(

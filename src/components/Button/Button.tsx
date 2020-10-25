@@ -22,6 +22,8 @@ interface IButtonProps {
    * The CSS class of button
    */
   className?: string;
+
+  children?:React.ReactNode;
 }
 
 /**
@@ -33,7 +35,7 @@ export default function Button({
   submit,
   className,
   onClick,
-  style
+  style, ...props
 }: IButtonProps): ReactElement {
   return (
     <>
@@ -59,7 +61,7 @@ export default function Button({
           }}
           style={{ ...style }}
         >
-          {name}
+          {props.children || name}
         </button>
       )}
     </>

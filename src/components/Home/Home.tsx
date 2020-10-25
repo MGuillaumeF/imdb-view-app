@@ -10,6 +10,15 @@ import Table from '../Table/Table';
 import { ITRow } from '../Table/TRow/TRow';
 import MenuBar from '../MenuBar/MenuBar';
 
+import { useTranslation } from 'react-i18next';
+
+import i18next from 'i18next';
+import ETRANSLATION_KEYS from '../../locales/TranslationKeys';
+import Button from '../Button/Button';
+
+
+
+
 function moviesToTableData(data: Movie[] | undefined) {
   const hRows: ITRow[] = [];
   const bRows: ITRow[] = [];
@@ -48,6 +57,7 @@ function moviesToTableData(data: Movie[] | undefined) {
 }
 
 export default function Home(): ReactElement {
+  const { t, i18n } = useTranslation();
   const [search, setSearch] = useState('');
   const [movieShowed, setMovieShowed] = useState<Movie>();
   const [movies, setMovies] = useState<Movie[]>();
@@ -79,10 +89,14 @@ export default function Home(): ReactElement {
       setMovieShowed(mov);
     }
   }
+  const changeLang = (lang: string) => {
+    i18n.changeLanguage(lang);
+  };
+
   const movieTableData = moviesToTableData(movies);
   return (
     <div className='Home'>
-      <MenuBar />
+      <MenuBar title={t(ETRANSLATION_KEYS.TITLE)}/>
       <SearchBar onSearch={getSearch} />
       {movieTableData.bRows ? (
         <Table
@@ -108,6 +122,25 @@ export default function Home(): ReactElement {
           <MovieShow data={movieShowed as Movie} />
         </Modal>
       ) : null}
+
+
+      <div style={{margin : 'auto', marginTop:"3em", width:"2em", display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
+
+      <Button
+          onClick={() => {
+            changeLang('fr');
+          }}
+        >
+          FR
+        </Button>
+        <Button
+          onClick={() => {
+            changeLang('en');
+          }}
+        >
+          EN
+        </Button>
+      </div>
     </div>
   );
 }
