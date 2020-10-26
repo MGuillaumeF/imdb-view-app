@@ -15,7 +15,7 @@ import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import ETRANSLATION_KEYS from '../../locales/TranslationKeys';
 import Button from '../Button/Button';
-
+const flagFR = require("../../icons/flags/fr.svg")
 
 
 
@@ -131,7 +131,7 @@ export default function Home(): ReactElement {
             changeLang('fr');
           }}
         >
-          FR
+          <img alt="fr-flag" src={flagFR} />FR
         </Button>
         <Button
           onClick={() => {
