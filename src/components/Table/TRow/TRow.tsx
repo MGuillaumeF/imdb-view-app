@@ -2,12 +2,19 @@ import React, { ReactElement } from 'react';
 import TCell, { ITCell } from '../TCell/TCell';
 
 export interface ITRow extends React.HTMLProps<HTMLTableRowElement> {
-  onClickOnRow?: (target: { row: string, col: { id : string, index: number } }) => void;
+  onClickOnRow?: (target: {
+    row: string;
+    col: { id: string; index: number };
+  }) => void;
   cells: ITCell[];
-  id : string;
+  id: string;
 }
 
-export default function TRow({onClickOnRow, cells, ...props}: ITRow): ReactElement {
+export default function TRow({
+  onClickOnRow,
+  cells,
+  ...props
+}: ITRow): ReactElement {
   function onClickCell({ id, col }: any) {
     if (onClickOnRow) {
       onClickOnRow({ row: props.id, col: { id, index: col } });

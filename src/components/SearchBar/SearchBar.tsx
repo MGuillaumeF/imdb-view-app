@@ -20,7 +20,11 @@ interface ISearchBarProps extends React.HTMLProps<HTMLFormElement> {
  * The Search bar component with
  * @param props
  */
-export default function SearchBar({onSearch, inputDefinition, ...props}: ISearchBarProps): ReactElement {
+export default function SearchBar({
+  onSearch,
+  inputDefinition,
+  ...props
+}: ISearchBarProps): ReactElement {
   const [currentValue, setCurrentValue] = useState<string>('');
   const updateIfemptySearchValue = () => {
     if (currentValue.trim() === '') {

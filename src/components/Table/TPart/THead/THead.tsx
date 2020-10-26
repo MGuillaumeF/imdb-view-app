@@ -44,7 +44,7 @@ export default function TableHeader({
         ? dataRows.map((row: ITRow, index: number) => {
             return (
               <TRow
-              onClickOnRow={index === 0 ? onClick : undefined}
+                onClickOnRow={index === 0 ? onClick : undefined}
                 className={isSortable && index === 0 ? 'sortable' : undefined}
                 key={row.id}
                 id={row.id}

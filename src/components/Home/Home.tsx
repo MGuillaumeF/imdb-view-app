@@ -15,9 +15,7 @@ import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import ETRANSLATION_KEYS from '../../locales/TranslationKeys';
 import Button from '../Button/Button';
-const flagFR = require("../../icons/flags/fr.svg")
-
-
+const flagFR = require('../../icons/flags/fr.svg');
 
 function moviesToTableData(data: Movie[] | undefined) {
   const hRows: ITRow[] = [];
@@ -96,7 +94,7 @@ export default function Home(): ReactElement {
   const movieTableData = moviesToTableData(movies);
   return (
     <div className='Home'>
-      <MenuBar title={t(ETRANSLATION_KEYS.TITLE)}/>
+      <MenuBar title={t(ETRANSLATION_KEYS.TITLE)} />
       <SearchBar onSearch={getSearch} />
       {movieTableData.bRows ? (
         <Table
@@ -123,15 +121,23 @@ export default function Home(): ReactElement {
         </Modal>
       ) : null}
 
-
-      <div style={{margin : 'auto', marginTop:"3em", width:"2em", display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
-
-      <Button
+      <div
+        style={{
+          margin: 'auto',
+          marginTop: '3em',
+          width: '2em',
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between'
+        }}
+      >
+        <Button
           onClick={() => {
             changeLang('fr');
           }}
         >
-          <img alt="fr-flag" src={flagFR} />FR
+          <img alt='fr-flag' src={flagFR} />
+          FR
         </Button>
         <Button
           onClick={() => {
