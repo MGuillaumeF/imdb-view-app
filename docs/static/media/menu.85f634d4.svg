@@ -4,6 +4,6 @@
         M 10 50 
         L 90 50
         M 10 75 
-        L 90 75" stroke="#FFFFFF" stroke-width="8" />
+        L 90 75" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
 
 </svg>
