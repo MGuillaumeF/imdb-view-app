@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
-import Movie from '../../model/Movie';
-import MovieItem from '../MovieItem/MovieItem';
+import Movie from '../../../model/Movie';
+import { MovieItem } from '..';
 import './MoviesList.sass';
 
 interface IMoviesListProps {

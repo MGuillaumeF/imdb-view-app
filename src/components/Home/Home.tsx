@@ -1,11 +1,10 @@
 import React, { ReactElement, useEffect, useState } from 'react';
 import Movie from '../../model/Movie';
 import * as Data from '../../model/Movie';
-import MoviesList from '../MoviesList/MoviesList';
 import SearchBar from '../SearchBar/SearchBar';
 import './Home.sass';
 import Modal from '../Modal/Modal';
-import MovieShow from '../MovieShow/MovieShow';
+import { MovieShow, MoviesList } from '../Movies';
 import Table from '../Table/Table';
 import { ITRow } from '../Table/TRow/TRow';
 import MenuBar from '../MenuBar/MenuBar';

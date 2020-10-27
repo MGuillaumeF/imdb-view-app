@@ -1,9 +1,9 @@
 import React, { ReactElement, useState } from 'react';
-import Movie from '../../model/Movie';
-import * as Film from '../../model/Movie';
-import Gauge from '../Gauge/Gauge';
+import Movie from '../../../model/Movie';
+import * as Film from '../../../model/Movie';
+import Gauge from '../../Gauge/Gauge';
 import './MovieItem.sass';
-import Rectangle from '../Rectangle/Rectangle';
+import Rectangle from '../../Rectangle/Rectangle';
 
 interface IMovieItemProps {
   /**
