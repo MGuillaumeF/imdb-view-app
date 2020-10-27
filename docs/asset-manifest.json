@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/imdb-view-app/static/css/main.1289ba75.chunk.css",
+    "main.js": "/imdb-view-app/build/main.59761b41.js",
+    "runtime-main.js": "/imdb-view-app/build/bundle.d9c9ee50.js",
+    "build/2.7a43ffaf.js": "/imdb-view-app/build/2.7a43ffaf.js",
+    "build/2.7a43ffaf.js.LICENSE.txt": "/imdb-view-app/build/2.7a43ffaf.js.LICENSE.txt",
+    "index.html": "/imdb-view-app/index.html",
+    "precache-manifest.2d2b95065762de93e99864a628cd3798.js": "/imdb-view-app/precache-manifest.2d2b95065762de93e99864a628cd3798.js",
+    "service-worker.js": "/imdb-view-app/service-worker.js",
+    "static/css/main.1289ba75.chunk.css.map": "/imdb-view-app/static/css/main.1289ba75.chunk.css.map",
+    "static/media/fr.svg": "/imdb-view-app/static/media/fr.1f19c69f.svg",
+    "static/media/heart.svg": "/imdb-view-app/static/media/heart.baf95af3.svg",
+    "static/media/menu.svg": "/imdb-view-app/static/media/menu.85f634d4.svg"
+  },
+  "entrypoints": [
+    "build/bundle.d9c9ee50.js",
+    "build/2.7a43ffaf.js",
+    "static/css/main.1289ba75.chunk.css",
+    "build/main.59761b41.js"
+  ]
+}
