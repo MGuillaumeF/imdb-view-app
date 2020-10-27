@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f8417c13e7e9a1905573b46eafc45774",
+    "revision": "1d4d888d2fc639613a25aec5fc5da771",
     "url": "/imdb-view-app/index.html"
   },
   {
-    "revision": "0519fb42dd3978cd96fd",
+    "revision": "c7e36d1da2ea061822be",
     "url": "/imdb-view-app/static/css/main.00b6b9b2.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/imdb-view-app/static/js/2.2d713ea8.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0519fb42dd3978cd96fd",
-    "url": "/imdb-view-app/static/js/main.e7aa3294.chunk.js"
+    "revision": "c7e36d1da2ea061822be",
+    "url": "/imdb-view-app/static/js/main.437f8999.chunk.js"
   },
   {
     "revision": "c535c5607df20daabf44",

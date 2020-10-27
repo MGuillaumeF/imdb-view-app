@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/imdb-view-app/static/css/main.00b6b9b2.chunk.css",
-    "main.js": "/imdb-view-app/static/js/main.e7aa3294.chunk.js",
-    "main.js.map": "/imdb-view-app/static/js/main.e7aa3294.chunk.js.map",
+    "main.js": "/imdb-view-app/static/js/main.437f8999.chunk.js",
+    "main.js.map": "/imdb-view-app/static/js/main.437f8999.chunk.js.map",
     "runtime-main.js": "/imdb-view-app/static/js/runtime-main.84edaaba.js",
     "runtime-main.js.map": "/imdb-view-app/static/js/runtime-main.84edaaba.js.map",
     "static/js/2.2d713ea8.chunk.js": "/imdb-view-app/static/js/2.2d713ea8.chunk.js",
     "static/js/2.2d713ea8.chunk.js.map": "/imdb-view-app/static/js/2.2d713ea8.chunk.js.map",
     "index.html": "/imdb-view-app/index.html",
-    "precache-manifest.01bc9d18077105b7e1a54ba08bb03989.js": "/imdb-view-app/precache-manifest.01bc9d18077105b7e1a54ba08bb03989.js",
+    "precache-manifest.77671b47e44c439af2c314c3ced4724f.js": "/imdb-view-app/precache-manifest.77671b47e44c439af2c314c3ced4724f.js",
     "service-worker.js": "/imdb-view-app/service-worker.js",
     "static/css/main.00b6b9b2.chunk.css.map": "/imdb-view-app/static/css/main.00b6b9b2.chunk.css.map",
     "static/js/2.2d713ea8.chunk.js.LICENSE.txt": "/imdb-view-app/static/js/2.2d713ea8.chunk.js.LICENSE.txt",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.84edaaba.js",
     "static/js/2.2d713ea8.chunk.js",
     "static/css/main.00b6b9b2.chunk.css",
-    "static/js/main.e7aa3294.chunk.js"
+    "static/js/main.437f8999.chunk.js"
   ]
 }
