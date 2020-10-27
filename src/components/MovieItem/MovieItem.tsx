@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import Movie from '../../model/Movie';
 import * as Film from '../../model/Movie';
 import Gauge from '../Gauge/Gauge';
@@ -6,11 +6,35 @@ import './MovieItem.sass';
 import Rectangle from '../Rectangle/Rectangle';
 
 interface IMovieItemProps {
+  /**
+   * Data of Movie
+   */
   data: Movie;
-  onClick: Function;
+  /**
+   * Function called when Movie Item is clicked
+   */
+  onClick: (id : number) => void;
 }
 
+/**
+ * Function to get Rectangle when poster of movie is not available
+ */
+function getEmptyPoster() : ReactElement {
+  return <Rectangle
+  text='Poster not found'
+  textColor='white'
+  width={500}
+  height={750}
+  primaryColor='#FF0000'
+  secondaryColor='#FFFF00'
+/>
+}
+
+/**
+ * Component to display a movie item with poster, title and release date
+ */
 export default function MovieItem(props: IMovieItemProps): ReactElement {
+  const [imageLoading, setImageLoading] = useState(false);
   function displayModal() {
     props.onClick(props.data.id);
   }
@@ -37,18 +61,11 @@ export default function MovieItem(props: IMovieItemProps): ReactElement {
       {props.data.posterPath ? (
         <img
           alt='poster'
-          src={`https://image.tmdb.org/t/p/w500/${props.data.posterPath}`}
+          style={{display : imageLoading ? 'block' : 'none'}}
+          src={`https://image.tmdb.org/t/p/w500/${props.data.posterPath}`} onLoad={()=> {setImageLoading(true)}}
         />
-      ) : (
-        <Rectangle
-          text='Poster not found'
-          textColor='white'
-          width={500}
-          height={750}
-          primaryColor='#FF0000'
-          secondaryColor='#FFFF00'
-        />
-      )}
+      ) : getEmptyPoster()}
+      {props.data.posterPath && !imageLoading ? getEmptyPoster() : null}
       <div>
         <h3>{props.data.title}</h3>
         <p>{props.data.releaseDate}</p>

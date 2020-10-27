@@ -6,11 +6,14 @@ import ActorList from '../ActorList/ActorList';
 import './MovieShow.sass';
 const icon = require('../../icons/heart.svg');
 
-interface Props {
+interface IMovieShowProps {
+  /**
+   * Data of movie to display
+   */
   data: Movie;
 }
 
-function MovieShow(props: Props): ReactElement {
+function MovieShow(props: IMovieShowProps): ReactElement {
   const movie = props.data;
   const [infos, setInfos] = useState({} as any);
   const [isFavorite, setIsFavorite] = useState(

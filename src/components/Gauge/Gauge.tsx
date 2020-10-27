@@ -32,6 +32,10 @@ interface IGauge {
   fontGaugeColor?: string;
 }
 
+/**
+ * Function to create Gauge component
+ * @param props Function to create SVG Component
+ */
 export default function Gauge(props: IGauge): ReactElement {
   const angleOffset = Math.PI / 2;
   const radius = 150;

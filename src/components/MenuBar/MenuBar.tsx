@@ -1,7 +1,19 @@
 import React, { ReactElement } from 'react';
 import './MenuBar.sass';
 const menu = require('../../icons/menu.svg');
-function MenuBar(props: { title: string }): ReactElement {
+
+interface IMenuBarProps {
+  /**
+   * The title of MenuBar
+   */
+  title: string;
+}
+
+/**
+ * Function to create Menu component
+ * @param props  All data of MenuBar definition
+ */
+function MenuBar(props: IMenuBarProps): ReactElement {
   return (
     <header className='MenuBar'>
       <img src={menu} alt='menu' />

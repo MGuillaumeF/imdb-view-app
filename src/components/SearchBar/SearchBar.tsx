@@ -12,7 +12,10 @@ interface ISearchBarProps extends React.HTMLProps<HTMLFormElement> {
   /**
    * The callback of search bar when enter or button is clicked
    */
-  onSearch: Function;
+  onSearch: (value: string) => void;
+  /**
+   * The definition of input in search bar
+   */
   inputDefinition?: React.HTMLProps<HTMLInputElement>;
 }
 
@@ -26,16 +29,25 @@ export default function SearchBar({
   ...props
 }: ISearchBarProps): ReactElement {
   const [currentValue, setCurrentValue] = useState<string>('');
+  /**
+   * Function to update state if search input is empty
+   */
   const updateIfemptySearchValue = () => {
     if (currentValue.trim() === '') {
       onSubmit();
     }
   };
   useEffect(updateIfemptySearchValue, [currentValue]);
-
+  /**
+   * Function to update 'value' state
+   */
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     setCurrentValue(event.target.value);
   };
+  /**
+   * Function when Submit event raised
+   * @param event The Submit Event
+   */
   const onSubmit = (event?: FormEvent<HTMLFormElement>) => {
     if (event) {
       event.preventDefault();
