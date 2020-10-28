@@ -26,8 +26,7 @@ function Table({
   isSortable,
   hRows,
   bRows,
-  fRows,
-  ...props
+  fRows
 }: ITable): ReactElement {
   const [displayedRows, setDisplayedRows] = useState<ITRow[]>(bRows || []);
 
@@ -56,7 +55,7 @@ function Table({
     });
     let startRows = copy(rows);
     let tmpRows: any = [];
-    tb.forEach((element: any, index: number) => {
+    tb.forEach((element: any) => {
       tmpRows.push(startRows[element.rowIndex]);
     });
     return copy(tmpRows);
@@ -64,7 +63,7 @@ function Table({
 
   function onSort(sortMap: any) {
     let tb: any = [];
-    sortMap.forEach((value: any, key: string, map: Map<string, any>) => {
+    sortMap.forEach((value: any) => {
       tb.push(value);
     });
 
@@ -77,7 +76,7 @@ function Table({
       return 0;
     });
     let tmpRows = copy(displayedRows);
-    tb.forEach((element: any, index: number) => {
+    tb.forEach((element: any) => {
       tmpRows = sortRowsByCol(tmpRows, element.col, element.alpha);
     });
     setDisplayedRows(tmpRows);

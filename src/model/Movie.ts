@@ -107,7 +107,7 @@ export async function findCast(movieId: number) {
   return response.data;
 }
 
-export async function getNowPlaying(movieId: number) {
+export async function getNowPlaying() {
   const response = await axios.get(
     `https://api.themoviedb.org/3/movie/now_playing`,
     {
