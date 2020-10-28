@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/imdb-view-app/static/css/main.00b6b9b2.chunk.css",
-    "main.js": "/imdb-view-app/static/js/main.437f8999.chunk.js",
-    "main.js.map": "/imdb-view-app/static/js/main.437f8999.chunk.js.map",
+    "main.css": "/imdb-view-app/static/css/main.e413ca7f.chunk.css",
+    "main.js": "/imdb-view-app/static/js/main.ad3c90e7.chunk.js",
+    "main.js.map": "/imdb-view-app/static/js/main.ad3c90e7.chunk.js.map",
     "runtime-main.js": "/imdb-view-app/static/js/runtime-main.84edaaba.js",
     "runtime-main.js.map": "/imdb-view-app/static/js/runtime-main.84edaaba.js.map",
-    "static/js/2.2d713ea8.chunk.js": "/imdb-view-app/static/js/2.2d713ea8.chunk.js",
-    "static/js/2.2d713ea8.chunk.js.map": "/imdb-view-app/static/js/2.2d713ea8.chunk.js.map",
+    "static/js/2.41e6492b.chunk.js": "/imdb-view-app/static/js/2.41e6492b.chunk.js",
+    "static/js/2.41e6492b.chunk.js.map": "/imdb-view-app/static/js/2.41e6492b.chunk.js.map",
     "index.html": "/imdb-view-app/index.html",
-    "precache-manifest.77671b47e44c439af2c314c3ced4724f.js": "/imdb-view-app/precache-manifest.77671b47e44c439af2c314c3ced4724f.js",
+    "precache-manifest.b2dbe2fc3aad6af2512db8f216a085a6.js": "/imdb-view-app/precache-manifest.b2dbe2fc3aad6af2512db8f216a085a6.js",
     "service-worker.js": "/imdb-view-app/service-worker.js",
-    "static/css/main.00b6b9b2.chunk.css.map": "/imdb-view-app/static/css/main.00b6b9b2.chunk.css.map",
-    "static/js/2.2d713ea8.chunk.js.LICENSE.txt": "/imdb-view-app/static/js/2.2d713ea8.chunk.js.LICENSE.txt",
+    "static/css/main.e413ca7f.chunk.css.map": "/imdb-view-app/static/css/main.e413ca7f.chunk.css.map",
+    "static/js/2.41e6492b.chunk.js.LICENSE.txt": "/imdb-view-app/static/js/2.41e6492b.chunk.js.LICENSE.txt",
     "static/media/fr.svg": "/imdb-view-app/static/media/fr.1f19c69f.svg",
     "static/media/heart.svg": "/imdb-view-app/static/media/heart.baf95af3.svg",
     "static/media/menu.svg": "/imdb-view-app/static/media/menu.85f634d4.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.84edaaba.js",
-    "static/js/2.2d713ea8.chunk.js",
-    "static/css/main.00b6b9b2.chunk.css",
-    "static/js/main.437f8999.chunk.js"
+    "static/js/2.41e6492b.chunk.js",
+    "static/css/main.e413ca7f.chunk.css",
+    "static/js/main.ad3c90e7.chunk.js"
   ]
 }

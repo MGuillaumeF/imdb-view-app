@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1d4d888d2fc639613a25aec5fc5da771",
+    "revision": "255483e43f4e18f6f2e1821fcb670e5f",
     "url": "/imdb-view-app/index.html"
   },
   {
-    "revision": "c7e36d1da2ea061822be",
-    "url": "/imdb-view-app/static/css/main.00b6b9b2.chunk.css"
+    "revision": "d20c6a5c35e7fc0e8d01",
+    "url": "/imdb-view-app/static/css/main.e413ca7f.chunk.css"
   },
   {
-    "revision": "d3a4f543622595228845",
-    "url": "/imdb-view-app/static/js/2.2d713ea8.chunk.js"
+    "revision": "5c71ec03dfefe9507101",
+    "url": "/imdb-view-app/static/js/2.41e6492b.chunk.js"
   },
   {
     "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/imdb-view-app/static/js/2.2d713ea8.chunk.js.LICENSE.txt"
+    "url": "/imdb-view-app/static/js/2.41e6492b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c7e36d1da2ea061822be",
-    "url": "/imdb-view-app/static/js/main.437f8999.chunk.js"
+    "revision": "d20c6a5c35e7fc0e8d01",
+    "url": "/imdb-view-app/static/js/main.ad3c90e7.chunk.js"
   },
   {
     "revision": "c535c5607df20daabf44",
