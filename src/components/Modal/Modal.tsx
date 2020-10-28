@@ -13,8 +13,8 @@ interface IModalProps {
 }
 
 /**
- * 
- * @param props Function to whrite popup Component
+ * Function to whrite popup Component
+ * @param props modal window definition
  */
 export default function Modal(props: IModalProps): ReactElement {
 

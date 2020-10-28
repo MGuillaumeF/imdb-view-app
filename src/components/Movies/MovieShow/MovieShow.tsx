@@ -2,7 +2,7 @@ import React, { ReactElement, useEffect, useState } from 'react';
 
 import Movie from '../../../model/Movie';
 import * as Film from '../../../model/Movie';
-import ActorList from '../../ActorList/ActorList';
+import ActorList from '../../Actor/ActorList/ActorList';
 import './MovieShow.sass';
 const icon = require('../../../icons/heart.svg');
 

@@ -1,4 +1,6 @@
 import axios from 'axios';
+import i18next from 'i18next';
+
 
 export default interface Movie {
   title: string;
@@ -18,7 +20,7 @@ export const getData = async (url: string = ''): Promise<Movie[]> => {
   const response = await axios
     .get(url.trim() !== '' ? url : 'https://api.themoviedb.org/4/list/1', {
       params: {
-        language: 'fr-FR'
+        language: i18next.language === 'fr' ? 'fr-FR' : 'en'
       },
       headers: {
         Authorization: `Bearer ${REACT_APP_TOKEN}`,
@@ -74,7 +76,7 @@ export async function findDetails(movieId: number) {
     `https://api.themoviedb.org/3/movie/${movieId}`,
     {
       params: {
-        language: 'fr-FR',
+        language: i18next.language === 'fr' ? 'fr-FR' : 'en',
         api_key: REACT_APP_TMBD_KEY
       },
       headers: {
@@ -92,7 +94,7 @@ export async function findCast(movieId: number) {
     `https://api.themoviedb.org/3/movie/${movieId}/credits`,
     {
       params: {
-        language: 'fr-FR',
+        language: i18next.language === 'fr' ? 'fr-FR' : 'en',
         api_key: REACT_APP_TMBD_KEY
       },
       headers: {
@@ -110,7 +112,7 @@ export async function getNowPlaying(movieId: number) {
     `https://api.themoviedb.org/3/movie/now_playing`,
     {
       params: {
-        language: 'fr-FR',
+        language: i18next.language === 'fr' ? 'fr-FR' : 'en',
         api_key: REACT_APP_TMBD_KEY,
         region: 'FR'
       },

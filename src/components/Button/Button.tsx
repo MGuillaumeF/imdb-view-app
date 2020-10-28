@@ -1,70 +1,35 @@
-import React, { CSSProperties, ReactElement } from 'react';
+import React, { HTMLProps, ReactElement } from 'react';
 import './Button.sass';
 
-interface IButtonProps {
-  /**
-   * The callback when button is clicked
-   */
-  onClick?: Function;
-  /**
-   * The button is an input with type submit
-   */
-  submit?: boolean;
-  /**
-   * The text content of button
-   */
-  name?: string;
-  /**
-   * The style of button
-   */
-  style?: CSSProperties;
-  /**
-   * The CSS class of button
-   */
-  className?: string;
+/**
+ * Enumerate for button types
+ */
+export enum EBUTTON_TYPE {
+  BUTTON = "button",
+  SUBMIT = "submit",
+  RESET = "submit"
+}
 
-  children?: React.ReactNode;
+interface IButtonProps extends HTMLProps<HTMLButtonElement> {
+  /**
+   * The button type ("button" by default)
+   */
+  type?: EBUTTON_TYPE;
 }
 
 /**
- * The Buttoncomponent with
+ * The Button component
  * @param props
  */
-export default function Button({
-  name,
-  submit,
-  className,
-  onClick,
-  style,
-  ...props
-}: IButtonProps): ReactElement {
+export default function Button(
+  props: IButtonProps): ReactElement {
   return (
-    <>
-      {submit ? (
-        <input
-          type='submit'
-          value={name}
-          className={className || 'Button'}
-          onClick={() => {
-            if (onClick) {
-              onClick();
-            }
-          }}
-          style={{ ...style }}
-        />
-      ) : (
-        <button
-          className={className || 'Button'}
-          onClick={() => {
-            if (onClick) {
-              onClick();
-            }
-          }}
-          style={{ ...style }}
-        >
-          {props.children || name}
-        </button>
-      )}
-    </>
+    <button
+      {...props}
+      type={props.type  || EBUTTON_TYPE.BUTTON}
+      className={props.className || 'Button'}
+    >
+      {props.children || props.name}
+    </button>
   );
 }

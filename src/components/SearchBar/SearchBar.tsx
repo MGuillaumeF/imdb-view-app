@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useState
 } from 'react';
-import Button from '../Button/Button';
+import Button, { EBUTTON_TYPE } from '../Button';
 import './SearchBar.sass';
 
 interface ISearchBarProps extends React.HTMLProps<HTMLFormElement> {
@@ -63,7 +63,7 @@ export default function SearchBar({
         value={currentValue}
         onChange={onChange}
       />
-      <Button submit name='Search' />
+      <Button type={EBUTTON_TYPE.SUBMIT} name='Search' />
     </form>
   );
 }

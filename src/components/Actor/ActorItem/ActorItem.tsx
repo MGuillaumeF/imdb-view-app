@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import Rectangle from '../Rectangle/Rectangle';
+import Rectangle from '../../Rectangle/Rectangle';
 import './ActorItem.sass';
 
 export interface IActorItemProps {

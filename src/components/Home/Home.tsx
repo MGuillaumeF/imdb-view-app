@@ -1,19 +1,18 @@
 import React, { ReactElement, useEffect, useState } from 'react';
-import Movie from '../../model/Movie';
-import * as Data from '../../model/Movie';
-import SearchBar from '../SearchBar/SearchBar';
-import './Home.sass';
-import Modal from '../Modal/Modal';
-import { MovieShow, MoviesList } from '../Movies';
-import Table from '../Table/Table';
-import { ITRow } from '../Table/TRow/TRow';
-import MenuBar from '../MenuBar/MenuBar';
-
 import { useTranslation } from 'react-i18next';
 
-import i18next from 'i18next';
+import Movie, * as Data from '../../model/Movie';
+import SearchBar from '../SearchBar';
+import Modal from '../Modal';
+import { MovieShow, MoviesList } from '../Movies';
+import { Table, ITRow } from '../Table';
+import MenuBar from '../MenuBar';
+import Button from '../Button';
+
+import './Home.sass';
+
 import ETRANSLATION_KEYS from '../../locales/TranslationKeys';
-import Button from '../Button/Button';
+import i18next from 'i18next';
 const flagFR = require('../../icons/flags/fr.svg');
 
 function moviesToTableData(data: Movie[] | undefined) {
@@ -58,11 +57,12 @@ export default function Home(): ReactElement {
   const [search, setSearch] = useState('');
   const [movieShowed, setMovieShowed] = useState<Movie>();
   const [movies, setMovies] = useState<Movie[]>();
+  const [currentLanguage, setCurrentLanguage] = useState(i18next.language);
   useEffect(() => {
     Data.getData().then((movies) => {
       return setMovies(movies);
     });
-  }, []);
+  }, [currentLanguage]);
   function getSearch(value: string) {
     if (value !== search) {
       console.log(value);
@@ -88,6 +88,7 @@ export default function Home(): ReactElement {
   }
   const changeLang = (lang: string) => {
     i18n.changeLanguage(lang);
+    setCurrentLanguage(lang)
   };
 
   const movieTableData = moviesToTableData(movies);
