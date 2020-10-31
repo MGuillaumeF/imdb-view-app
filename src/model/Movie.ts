@@ -1,7 +1,34 @@
-import axios from 'axios';
+
+import { EHTTP_METHOD, request, Headers, Query } from '../comm';
 import i18next from 'i18next';
 
+const REACT_APP_TOKEN =
+  'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOGZjNmQ3OTVlMzhiNmI1NTdmOWNhN2FhZTFjYzViMyIsInN1YiI6IjVmN2NmNmFmZmRmYzlmMDAzOGI1OTBkNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7mm9P-EFL-HdQVo2gxao0egAaHujxrm3XiuUzWiLnDY';
+const REACT_APP_TMBD_KEY = 'f8fc6d795e38b6b557f9ca7aae1cc5b3';
 
+const headers: Headers = {
+  Authorization: `Bearer ${REACT_APP_TOKEN}`,
+  'Content-Type': 'application/json;charset=utf-8'
+};
+
+async function movieDbAPIRequest(params: {
+  pathname: string;
+  method: EHTTP_METHOD;
+  query?: Query;
+  headers?: Headers;
+}) {
+  const response = await request({
+    method: EHTTP_METHOD.GET,
+    href: `https://api.themoviedb.org${params.pathname}`,
+    query: { language : i18next.language === 'fr' ? 'fr-FR' : 'en', ...params.query },
+    headers: { ...headers, ...params.headers }
+  }).catch((exception) => {
+    console.error(exception);
+    throw exception;
+  });
+
+  return response;
+}
 export default interface Movie {
   title: string;
   posterPath: string;
@@ -11,28 +38,17 @@ export default interface Movie {
   backdrop_path: string;
   overview: string;
 }
-
-const REACT_APP_TOKEN =
-  'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOGZjNmQ3OTVlMzhiNmI1NTdmOWNhN2FhZTFjYzViMyIsInN1YiI6IjVmN2NmNmFmZmRmYzlmMDAzOGI1OTBkNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7mm9P-EFL-HdQVo2gxao0egAaHujxrm3XiuUzWiLnDY';
-const REACT_APP_TMBD_KEY = 'f8fc6d795e38b6b557f9ca7aae1cc5b3';
-
 export const getData = async (url: string = ''): Promise<Movie[]> => {
-  const response = await axios
-    .get(url.trim() !== '' ? url : 'https://api.themoviedb.org/4/list/1', {
-      params: {
-        language: i18next.language === 'fr' ? 'fr-FR' : 'en'
-      },
-      headers: {
-        Authorization: `Bearer ${REACT_APP_TOKEN}`,
-        'Content-Type': 'application/json;charset=utf-8'
-      }
-    })
-    .catch((exception) => {
-      console.error(exception);
-      throw exception;
-    });
-  console.log(response);
-  return response.data.results.map((movie: any) => {
+  const response = await movieDbAPIRequest({
+    method: EHTTP_METHOD.GET,
+    pathname: url.trim() !== '' ? url : '/4/list/1'
+  }).catch((exception) => {
+    console.error(exception);
+    throw exception;
+  });
+
+  const JSONResponse = JSON.parse(response.body);
+  return JSONResponse.results.map((movie: any) => {
     return {
       title: movie.title,
       posterPath: movie.poster_path,
@@ -45,21 +61,16 @@ export const getData = async (url: string = ''): Promise<Movie[]> => {
 };
 
 export async function search(query: string): Promise<Movie[]> {
-  const response = await axios.get(
-    'https://api.themoviedb.org/4/search/movie',
-    {
-      params: {
-        language: 'fr-FR',
-        query
-      },
-      headers: {
-        Authorization: 'Bearer ' + REACT_APP_TOKEN,
-        'Content-Type': 'application/json;charset=utf-8'
-      }
+  const response = await movieDbAPIRequest({
+    method: EHTTP_METHOD.GET,
+    pathname: '/4/search/movie',
+    query: {
+      query
     }
-  );
+  });
 
-  return response.data.results.map((movie: any) => {
+  const JSONResponse = JSON.parse(response.body);
+  return JSONResponse.results.map((movie: any) => {
     return {
       title: movie.title,
       posterPath: movie.poster_path,
@@ -72,58 +83,40 @@ export async function search(query: string): Promise<Movie[]> {
 }
 
 export async function findDetails(movieId: number) {
-  const response = await axios.get(
-    `https://api.themoviedb.org/3/movie/${movieId}`,
-    {
-      params: {
-        language: i18next.language === 'fr' ? 'fr-FR' : 'en',
-        api_key: REACT_APP_TMBD_KEY
-      },
-      headers: {
-        Authorization: 'Bearer ' + REACT_APP_TOKEN,
-        'Content-Type': 'application/json;charset=utf-8'
-      }
+  const response = await movieDbAPIRequest({
+    method: EHTTP_METHOD.GET,
+    pathname: `/3/movie/${movieId}`,
+    query: {
+      api_key: REACT_APP_TMBD_KEY
     }
-  );
+  });
 
-  return response.data;
+  return JSON.parse(response.body);
 }
 
 export async function findCast(movieId: number) {
-  const response = await axios.get(
-    `https://api.themoviedb.org/3/movie/${movieId}/credits`,
-    {
-      params: {
-        language: i18next.language === 'fr' ? 'fr-FR' : 'en',
+    const response = await movieDbAPIRequest({
+      method: EHTTP_METHOD.GET,
+      pathname: `/3/movie/${movieId}/credits`,
+      query: {
         api_key: REACT_APP_TMBD_KEY
-      },
-      headers: {
-        Authorization: 'Bearer ' + REACT_APP_TOKEN,
-        'Content-Type': 'application/json;charset=utf-8'
       }
-    }
-  );
-
-  return response.data;
+    });
+  
+    return JSON.parse(response.body);
 }
 
 export async function getNowPlaying() {
-  const response = await axios.get(
-    `https://api.themoviedb.org/3/movie/now_playing`,
-    {
-      params: {
-        language: i18next.language === 'fr' ? 'fr-FR' : 'en',
-        api_key: REACT_APP_TMBD_KEY,
-        region: 'FR'
-      },
-      headers: {
-        Authorization: 'Bearer ' + REACT_APP_TOKEN,
-        'Content-Type': 'application/json;charset=utf-8'
-      }
+  const response = await movieDbAPIRequest({
+    method: EHTTP_METHOD.GET,
+    pathname: '/3/movie/now_playing',
+    query: {
+      api_key: REACT_APP_TMBD_KEY,
+      region: 'FR'
     }
-  );
+  });
 
-  return response.data;
+  return JSON.parse(response.body);
 }
 
 export function getFavorites() {
