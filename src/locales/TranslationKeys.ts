@@ -1,5 +1,6 @@
 enum ETRANSLATION_KEYS {
   TITLE = 'TITLE',
-  ABOUT = 'ABOUT'
+  ABOUT = 'ABOUT',
+  SEARCH = 'SEARCH'
 }
 export default ETRANSLATION_KEYS;

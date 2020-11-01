@@ -7,6 +7,8 @@ import React, {
 } from 'react';
 import Button, { EBUTTON_TYPE } from '../Button';
 import './SearchBar.sass';
+import { useTranslation } from 'react-i18next';
+
 
 interface ISearchBarProps extends React.HTMLProps<HTMLFormElement> {
   /**
@@ -28,6 +30,7 @@ export default function SearchBar({
   inputDefinition,
   ...props
 }: ISearchBarProps): ReactElement {
+  const { t } = useTranslation();
   const [currentValue, setCurrentValue] = useState<string>('');
   /**
    * Function to update state if search input is empty
@@ -57,13 +60,13 @@ export default function SearchBar({
   return (
     <form {...props} className='SearchBar' onSubmit={onSubmit}>
       <input
-        {...inputDefinition}
-        placeholder='Search'
+        placeholder={t('SEARCH')}
         type='text'
         value={currentValue}
         onChange={onChange}
-      />
-      <Button type={EBUTTON_TYPE.SUBMIT} name='Search' />
+        {...inputDefinition}
+        />
+      <Button type={EBUTTON_TYPE.SUBMIT} name={t('SEARCH')} />
     </form>
   );
 }

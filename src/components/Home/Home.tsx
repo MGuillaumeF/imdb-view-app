@@ -1,5 +1,6 @@
 import React, { ReactElement, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
 
 import Movie, * as Data from '../../model/Movie';
 import SearchBar from '../SearchBar';
@@ -12,7 +13,6 @@ import Button from '../Button';
 import './Home.sass';
 
 import ETRANSLATION_KEYS from '../../locales/TranslationKeys';
-import i18next from 'i18next';
 const flagFR = require('../../icons/flags/fr.svg');
 
 function moviesToTableData(data: Movie[] | undefined) {
