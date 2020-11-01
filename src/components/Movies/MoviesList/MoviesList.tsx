@@ -19,8 +19,9 @@ interface IMoviesListProps {
 }
 
 /**
- * Function to create Movie List Component
+ * Movie List Component is a Layout Component to display as flex row list of MovieItem Component
  * @param props Data of MovieList
+ * @link MovieItem
  */
 export default function MoviesList(props: IMoviesListProps): ReactElement {
   const movies = props.movies.filter((movie) => {
