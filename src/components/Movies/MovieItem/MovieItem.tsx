@@ -47,7 +47,9 @@ export default function MovieItem(props: IMovieItemProps): ReactElement {
       }}
     >
       <Gauge
-        note={props.data.voteAverage}
+        value={props.data.voteAverage}
+        title={`${props.data.title} - ${props.data.voteAverage}/10`}
+        description={`The note of movie : ${props.data.title}`}
         max={10}
         style={{
           position: 'absolute',

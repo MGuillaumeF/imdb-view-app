@@ -3,9 +3,17 @@ import './Gauge.sass';
 
 interface IGauge {
   /**
+   * The title of gauge
+   */
+  title?: string;
+  /**
+   * The description of gauge
+   */
+  description?: string;
+  /**
    * The value of gauge
    */
-  note: number;
+  value: number;
   /**
    * The min end of Gauge
    */
@@ -42,7 +50,7 @@ export default function Gauge(props: IGauge): ReactElement {
 
   let max = props.max || 100;
   let min = props.min || 0;
-  let note = props.note;
+  let note = props.value;
   if (min > max) {
     min = 0;
     max = 100;
@@ -91,8 +99,8 @@ export default function Gauge(props: IGauge): ReactElement {
       xmlns='http://www.w3.org/2000/svg'
       version='1.1'
     >
-      <title>Note</title>
-      <desc>Gauge of percent satisfaction</desc>
+      <title>{props.title || 'Gauge'}</title>
+      <desc>{props.description || 'A Gauge'}</desc>
 
       <path
         d='M0 200 a 200 200 0 1 0 0 -1 z'

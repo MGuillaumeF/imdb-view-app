@@ -6,14 +6,14 @@ function CallerComponent() {
   return (
     <React.Fragment>
       <Gauge
-        note={state}
+        value={state}
         max={10}
         style={{ width: '3em', height: 'auto' }}
         bgGaugeColor='#222'
       />
       <br />
       <Gauge
-        note={state}
+        value={state}
         max={10}
         style={{ width: '3em', height: 'auto', border: '1px solid #333' }}
         strikeGaugeColor='cyan'
