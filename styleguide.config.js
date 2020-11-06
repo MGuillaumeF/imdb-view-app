@@ -2,18 +2,24 @@ module.exports = {
   propsParser: require('react-docgen-typescript').withCustomConfig(
     './tsconfig.json'
   ).parse,
-  exampleMode : "expand",
-  usageMode : "expand",
+  exampleMode: 'expand',
+  usageMode: 'expand',
   styleguideDir: 'docs',
   pagePerSection: true,
-  ignore : ['**/index.tsx', '**/__tests__/**', '**/*.test.{js,jsx,ts,tsx}', '**/*.spec.{js,jsx,ts,tsx}', '**/*.d.ts'],
-  theme : {
-    color : {
-      baseBackground : '#333',
-      base : '#FFF',
+  ignore: [
+    '**/index.tsx',
+    '**/__tests__/**',
+    '**/*.test.{js,jsx,ts,tsx}',
+    '**/*.spec.{js,jsx,ts,tsx}',
+    '**/*.d.ts'
+  ],
+  theme: {
+    color: {
+      baseBackground: '#333',
+      base: '#FFF',
       sidebarBackground: '#303030',
       codeProperty: '#ff008c',
-	    codeDeleted: '#ff008c',
+      codeDeleted: '#ff008c'
     }
   },
   sections: [
@@ -33,7 +39,6 @@ module.exports = {
           exampleMode: 'expand', // 'hide' | 'collapse' | 'expand'
           usageMode: 'expand' // 'hide' | 'collapse' | 'expand'
         }
-    
       ]
     },
     {

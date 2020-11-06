@@ -88,7 +88,7 @@ export default function Home(): ReactElement {
   }
   const changeLang = (lang: string) => {
     i18n.changeLanguage(lang);
-    setCurrentLanguage(lang)
+    setCurrentLanguage(lang);
   };
 
   const movieTableData = moviesToTableData(movies);

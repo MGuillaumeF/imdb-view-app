@@ -1,4 +1,4 @@
-import ActorList from "./ActorList";
+import ActorList from './ActorList';
 
-export {ActorList};
+export { ActorList };
 export default ActorList;

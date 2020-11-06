@@ -1,6 +1,6 @@
-import Table from "./Table";
-import { ITRow } from "./TRow/TRow";
+import Table from './Table';
+import { ITRow } from './TRow/TRow';
 
 export { Table };
-    export type { ITRow };
+export type { ITRow };
 export default Table;

@@ -13,21 +13,23 @@ interface IMovieItemProps {
   /**
    * Function called when Movie Item is clicked
    */
-  onClick: (id : number) => void;
+  onClick: (id: number) => void;
 }
 
 /**
  * Function to get Rectangle when poster of movie is not available
  */
-function getEmptyPoster() : ReactElement {
-  return <Rectangle
-  text='Poster not found'
-  textColor='white'
-  width={500}
-  height={750}
-  primaryColor='#FF0000'
-  secondaryColor='#FFFF00'
-/>
+function getEmptyPoster(): ReactElement {
+  return (
+    <Rectangle
+      text='Poster not found'
+      textColor='white'
+      width={500}
+      height={750}
+      primaryColor='#FF0000'
+      secondaryColor='#FFFF00'
+    />
+  );
 }
 
 /**
@@ -63,10 +65,15 @@ export default function MovieItem(props: IMovieItemProps): ReactElement {
       {props.data.posterPath ? (
         <img
           alt='poster'
-          style={{display : imageLoading ? 'block' : 'none'}}
-          src={`https://image.tmdb.org/t/p/w500/${props.data.posterPath}`} onLoad={()=> {setImageLoading(true)}}
+          style={{ display: imageLoading ? 'block' : 'none' }}
+          src={`https://image.tmdb.org/t/p/w500/${props.data.posterPath}`}
+          onLoad={() => {
+            setImageLoading(true);
+          }}
         />
-      ) : getEmptyPoster()}
+      ) : (
+        getEmptyPoster()
+      )}
       {props.data.posterPath && !imageLoading ? getEmptyPoster() : null}
       <div>
         <h3>{props.data.title}</h3>

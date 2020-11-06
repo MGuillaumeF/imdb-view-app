@@ -13,9 +13,9 @@ interface IMoviesListProps {
    */
   movies: Movie[];
   /**
-   * Function called when Movie Item of List is clicked 
+   * Function called when Movie Item of List is clicked
    */
-  onClickItem: (id : number) => void;
+  onClickItem: (id: number) => void;
 }
 
 /**

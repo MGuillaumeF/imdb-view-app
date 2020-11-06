@@ -133,7 +133,7 @@ function getStatusTextByCode(statusCode: number) {
       eStatusCode = EHTTP_STATUS_CODE.INTERNAL_SERVER_ERROR;
       sStatusText = EHTTP_STATUS_TEXT.INTERNAL_SERVER_ERROR;
   }
-  return {text : sStatusText, code : eStatusCode}
+  return { text: sStatusText, code: eStatusCode };
 }
 
 export async function request(params: IHTTPRequest): Promise<IHTTPResponse> {
@@ -152,7 +152,7 @@ export async function request(params: IHTTPRequest): Promise<IHTTPResponse> {
       console.error('error', error.response);
     });
 
- const titi = getStatusTextByCode(axiosResponse ? axiosResponse.status : -1)
+  const titi = getStatusTextByCode(axiosResponse ? axiosResponse.status : -1);
   return {
     duration: Date.now() - start,
     statusCode: titi.code,

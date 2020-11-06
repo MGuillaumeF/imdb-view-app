@@ -17,7 +17,6 @@ interface IModalProps {
  * @param props modal window definition
  */
 export default function Modal(props: IModalProps): ReactElement {
-
   /**
    * Function called when out of pop p is clicked
    */
@@ -27,7 +26,7 @@ export default function Modal(props: IModalProps): ReactElement {
 
   /**
    * Function to listen click on popup
-   * @param event 
+   * @param event
    */
   const onPopClick = (event: any) => {
     event.stopPropagation();

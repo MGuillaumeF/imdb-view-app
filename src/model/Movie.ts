@@ -1,4 +1,3 @@
-
 import { EHTTP_METHOD, request, Headers, Query } from '../comm';
 import i18next from 'i18next';
 
@@ -20,7 +19,10 @@ async function movieDbAPIRequest(params: {
   const response = await request({
     method: EHTTP_METHOD.GET,
     href: `https://api.themoviedb.org${params.pathname}`,
-    query: { language : i18next.language === 'fr' ? 'fr-FR' : 'en', ...params.query },
+    query: {
+      language: i18next.language === 'fr' ? 'fr-FR' : 'en',
+      ...params.query
+    },
     headers: { ...headers, ...params.headers }
   }).catch((exception) => {
     console.error(exception);
@@ -95,15 +97,15 @@ export async function findDetails(movieId: number) {
 }
 
 export async function findCast(movieId: number) {
-    const response = await movieDbAPIRequest({
-      method: EHTTP_METHOD.GET,
-      pathname: `/3/movie/${movieId}/credits`,
-      query: {
-        api_key: REACT_APP_TMBD_KEY
-      }
-    });
-  
-    return JSON.parse(response.body);
+  const response = await movieDbAPIRequest({
+    method: EHTTP_METHOD.GET,
+    pathname: `/3/movie/${movieId}/credits`,
+    query: {
+      api_key: REACT_APP_TMBD_KEY
+    }
+  });
+
+  return JSON.parse(response.body);
 }
 
 export async function getNowPlaying() {

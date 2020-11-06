@@ -1,5 +1,5 @@
-import ActorItem from "./ActorItem";
-import ActorList from "./ActorList";
+import ActorItem from './ActorItem';
+import ActorList from './ActorList';
 
-export {ActorItem, ActorList};
-export default {ActorItem, ActorList};
+export { ActorItem, ActorList };
+export default { ActorItem, ActorList };

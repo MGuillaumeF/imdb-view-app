@@ -1,4 +1,4 @@
-import ActorItem from "./ActorItem";
+import ActorItem from './ActorItem';
 
-export {ActorItem};
+export { ActorItem };
 export default ActorItem;

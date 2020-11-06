@@ -5,9 +5,9 @@ import './Button.sass';
  * Enumerate for button types
  */
 export enum EBUTTON_TYPE {
-  BUTTON = "button",
-  SUBMIT = "submit",
-  RESET = "submit"
+  BUTTON = 'button',
+  SUBMIT = 'submit',
+  RESET = 'submit'
 }
 
 interface IButtonProps extends HTMLProps<HTMLButtonElement> {
@@ -21,12 +21,11 @@ interface IButtonProps extends HTMLProps<HTMLButtonElement> {
  * The Button component
  * @param props
  */
-export default function Button(
-  props: IButtonProps): ReactElement {
+export default function Button(props: IButtonProps): ReactElement {
   return (
     <button
       {...props}
-      type={props.type  || EBUTTON_TYPE.BUTTON}
+      type={props.type || EBUTTON_TYPE.BUTTON}
       className={props.className || 'Button'}
     >
       {props.children || props.name}

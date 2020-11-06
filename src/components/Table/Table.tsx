@@ -22,12 +22,7 @@ interface ITable {
   isFiltrable?: boolean;
 }
 
-function Table({
-  isSortable,
-  hRows,
-  bRows,
-  fRows
-}: ITable): ReactElement {
+function Table({ isSortable, hRows, bRows, fRows }: ITable): ReactElement {
   const [displayedRows, setDisplayedRows] = useState<ITRow[]>(bRows || []);
 
   useEffect(() => {

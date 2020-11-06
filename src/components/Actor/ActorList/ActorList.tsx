@@ -2,16 +2,15 @@ import React, { ReactElement } from 'react';
 import ActorItem, { IActorItemProps } from '../ActorItem/ActorItem';
 import './ActorList.sass';
 
-
 interface IActorListProps {
   /**
-   * Actor item props list 
+   * Actor item props list
    */
   actors: IActorItemProps[];
 }
 
 /**
- * Function to create Actor List 
+ * Function to create Actor List
  * @param actors list of actors
  */
 function ActorList({ actors }: IActorListProps): ReactElement {
