@@ -4,7 +4,7 @@ import Movie from '../../../model/Movie';
 import * as Film from '../../../model/Movie';
 import ActorList from '../../Actor/ActorList/ActorList';
 import './MovieShow.sass';
-const icon = require('../../../icons/heart.svg');
+import icon from '../../../icons/heart.svg';
 
 interface IMovieShowProps {
   /**

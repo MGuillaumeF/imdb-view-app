@@ -7,6 +7,15 @@ module.exports = {
   styleguideDir: 'docs',
   pagePerSection: true,
   ignore : ['**/index.tsx', '**/__tests__/**', '**/*.test.{js,jsx,ts,tsx}', '**/*.spec.{js,jsx,ts,tsx}', '**/*.d.ts'],
+  theme : {
+    color : {
+      baseBackground : '#333',
+      base : '#FFF',
+      sidebarBackground: '#303030',
+      codeProperty: '#ff008c',
+	    codeDeleted: '#ff008c',
+    }
+  },
   sections: [
     {
       name: 'Introduction',

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import './MenuBar.sass';
-const menu = require('../../icons/menu.svg');
+import menu from '../../icons/menu.svg';
 
 interface IMenuBarProps {
   /**

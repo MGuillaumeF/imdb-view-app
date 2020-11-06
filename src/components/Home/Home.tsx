@@ -13,7 +13,7 @@ import Button from '../Button';
 import './Home.sass';
 
 import ETRANSLATION_KEYS from '../../locales/TranslationKeys';
-const flagFR = require('../../icons/flags/fr.svg');
+import flagFR from '../../icons/flags/fr.svg';
 
 function moviesToTableData(data: Movie[] | undefined) {
   const hRows: ITRow[] = [];
