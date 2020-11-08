@@ -3,7 +3,7 @@ import Movie from '../../../model/Movie';
 import * as Film from '../../../model/Movie';
 import Gauge from '../../Gauge/Gauge';
 import './MovieItem.sass';
-import Rectangle from '../../Rectangle/Rectangle';
+import noPoster from '../../../icons/no_image.svg'
 
 interface IMovieItemProps {
   /**
@@ -20,14 +20,10 @@ interface IMovieItemProps {
  * Function to get Rectangle when poster of movie is not available
  */
 function getEmptyPoster(): ReactElement {
+
   return (
-    <Rectangle
-      text='Poster not found'
-      textColor='white'
-      width={500}
-      height={750}
-      primaryColor='#FF0000'
-      secondaryColor='#FFFF00'
+    <img
+      src={noPoster} alt='no poster'
     />
   );
 }
