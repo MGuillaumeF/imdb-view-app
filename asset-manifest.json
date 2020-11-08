@@ -1,25 +1,27 @@
 {
   "files": {
-    "main.css": "/imdb-view-app/static/css/main.9afb0fa9.chunk.css",
-    "main.js": "/imdb-view-app/static/js/main.f2a075e5.chunk.js",
-    "main.js.map": "/imdb-view-app/static/js/main.f2a075e5.chunk.js.map",
-    "runtime-main.js": "/imdb-view-app/static/js/runtime-main.84edaaba.js",
-    "runtime-main.js.map": "/imdb-view-app/static/js/runtime-main.84edaaba.js.map",
-    "static/js/2.9f798298.chunk.js": "/imdb-view-app/static/js/2.9f798298.chunk.js",
-    "static/js/2.9f798298.chunk.js.map": "/imdb-view-app/static/js/2.9f798298.chunk.js.map",
+    "main.css": "/imdb-view-app/static/css/main.99f16eb2.chunk.css",
+    "main.js": "/imdb-view-app/static/js/main.544863d6.chunk.js",
+    "main.js.map": "/imdb-view-app/static/js/main.544863d6.chunk.js.map",
+    "runtime-main.js": "/imdb-view-app/static/js/runtime-main.c0191236.js",
+    "runtime-main.js.map": "/imdb-view-app/static/js/runtime-main.c0191236.js.map",
+    "static/js/2.9e3d21d1.chunk.js": "/imdb-view-app/static/js/2.9e3d21d1.chunk.js",
+    "static/js/2.9e3d21d1.chunk.js.map": "/imdb-view-app/static/js/2.9e3d21d1.chunk.js.map",
     "index.html": "/imdb-view-app/index.html",
-    "precache-manifest.261a946068fbad4c8c06a3e33ffc3f97.js": "/imdb-view-app/precache-manifest.261a946068fbad4c8c06a3e33ffc3f97.js",
-    "service-worker.js": "/imdb-view-app/service-worker.js",
-    "static/css/main.9afb0fa9.chunk.css.map": "/imdb-view-app/static/css/main.9afb0fa9.chunk.css.map",
-    "static/js/2.9f798298.chunk.js.LICENSE.txt": "/imdb-view-app/static/js/2.9f798298.chunk.js.LICENSE.txt",
-    "static/media/fr.svg": "/imdb-view-app/static/media/fr.1f19c69f.svg",
-    "static/media/heart.svg": "/imdb-view-app/static/media/heart.baf95af3.svg",
-    "static/media/menu.svg": "/imdb-view-app/static/media/menu.85f634d4.svg"
+    "static/css/main.99f16eb2.chunk.css.map": "/imdb-view-app/static/css/main.99f16eb2.chunk.css.map",
+    "static/js/2.9e3d21d1.chunk.js.LICENSE.txt": "/imdb-view-app/static/js/2.9e3d21d1.chunk.js.LICENSE.txt",
+    "static/media/fonts.sass": "/imdb-view-app/static/media/NunitoSans-Regular.87d92665.ttf",
+    "static/media/fr.43d8308c.svg": "/imdb-view-app/static/media/fr.43d8308c.svg",
+    "static/media/heart.d63fd1bf.svg": "/imdb-view-app/static/media/heart.d63fd1bf.svg",
+    "static/media/image.6c57800c.svg": "/imdb-view-app/static/media/image.6c57800c.svg",
+    "static/media/menu.2f6c0005.svg": "/imdb-view-app/static/media/menu.2f6c0005.svg",
+    "static/media/more.8ef2b065.svg": "/imdb-view-app/static/media/more.8ef2b065.svg",
+    "static/media/table.173cddf7.svg": "/imdb-view-app/static/media/table.173cddf7.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.84edaaba.js",
-    "static/js/2.9f798298.chunk.js",
-    "static/css/main.9afb0fa9.chunk.css",
-    "static/js/main.f2a075e5.chunk.js"
+    "static/js/runtime-main.c0191236.js",
+    "static/js/2.9e3d21d1.chunk.js",
+    "static/css/main.99f16eb2.chunk.css",
+    "static/js/main.544863d6.chunk.js"
   ]
 }

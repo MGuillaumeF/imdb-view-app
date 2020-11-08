@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/imdb-view-app/static/css/main.93ed1ff6.chunk.css",
-    "main.js": "/imdb-view-app/build/main.fac783ce.js",
-    "runtime-main.js": "/imdb-view-app/build/bundle.d9c9ee50.js",
-    "build/2.3ec27f19.js": "/imdb-view-app/build/2.3ec27f19.js",
-    "build/2.3ec27f19.js.LICENSE.txt": "/imdb-view-app/build/2.3ec27f19.js.LICENSE.txt",
+    "main.css": "/imdb-view-app/static/css/main.5f8f5f29.chunk.css",
+    "main.js": "/imdb-view-app/build/main.a095f6b6.js",
+    "runtime-main.js": "/imdb-view-app/build/bundle.153ee7bb.js",
+    "build/2.01cf4667.js": "/imdb-view-app/build/2.01cf4667.js",
+    "build/2.01cf4667.js.LICENSE.txt": "/imdb-view-app/build/2.01cf4667.js.LICENSE.txt",
     "index.html": "/imdb-view-app/index.html",
-    "precache-manifest.52a43c7e28d651e193d0efaede666a2d.js": "/imdb-view-app/precache-manifest.52a43c7e28d651e193d0efaede666a2d.js",
-    "service-worker.js": "/imdb-view-app/service-worker.js",
-    "static/css/main.93ed1ff6.chunk.css.map": "/imdb-view-app/static/css/main.93ed1ff6.chunk.css.map",
-    "static/media/fr.svg": "/imdb-view-app/static/media/fr.1f19c69f.svg",
-    "static/media/heart.svg": "/imdb-view-app/static/media/heart.baf95af3.svg",
-    "static/media/menu.svg": "/imdb-view-app/static/media/menu.85f634d4.svg"
+    "static/css/main.5f8f5f29.chunk.css.map": "/imdb-view-app/static/css/main.5f8f5f29.chunk.css.map",
+    "static/media/fr.43d8308c.svg": "/imdb-view-app/static/media/fr.43d8308c.svg",
+    "static/media/heart.d63fd1bf.svg": "/imdb-view-app/static/media/heart.d63fd1bf.svg",
+    "static/media/image.6c57800c.svg": "/imdb-view-app/static/media/image.6c57800c.svg",
+    "static/media/menu.2f6c0005.svg": "/imdb-view-app/static/media/menu.2f6c0005.svg",
+    "static/media/more.8ef2b065.svg": "/imdb-view-app/static/media/more.8ef2b065.svg",
+    "static/media/table.173cddf7.svg": "/imdb-view-app/static/media/table.173cddf7.svg"
   },
   "entrypoints": [
-    "build/bundle.d9c9ee50.js",
-    "build/2.3ec27f19.js",
-    "static/css/main.93ed1ff6.chunk.css",
-    "build/main.fac783ce.js"
+    "build/bundle.153ee7bb.js",
+    "build/2.01cf4667.js",
+    "static/css/main.5f8f5f29.chunk.css",
+    "build/main.a095f6b6.js"
   ]
 }
