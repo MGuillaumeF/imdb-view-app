@@ -15,6 +15,9 @@ import './Home.sass';
 
 import ETRANSLATION_KEYS from '../../locales/TranslationKeys';
 import flagFR from '../../icons/flags/fr.svg';
+import image from '../../icons/image.svg';
+import table from '../../icons/table.svg';
+import ToggleButtonGroup from '../ToggleButton/ToggleButtonGroup';
 
 const LOGGER= Logger.getInstance();
 
@@ -58,6 +61,7 @@ function moviesToTableData(data: Movie[] | undefined) {
 export default function Home(): ReactElement {
   const { t, i18n } = useTranslation();
   const [search, setSearch] = useState('');
+  const [display, setDisplay] = useState('grid');
   const [movieShowed, setMovieShowed] = useState<Movie>();
   const [movies, setMovies] = useState<Movie[]>();
   const [currentLanguage, setCurrentLanguage] = useState(i18next.language);
@@ -99,7 +103,8 @@ export default function Home(): ReactElement {
     <div className='Home'>
       <MenuBar title={t(ETRANSLATION_KEYS.TITLE)} />
       <SearchBar onSearch={getSearch} />
-      {movieTableData.bRows ? (
+      <ToggleButtonGroup defaultValue='grid' style={{position : 'relative', marginLeft : 'auto', marginTop: '5px'}} buttons={[{id:'a', value:'table', objectContent: <img style={{margin: "auto", verticalAlign:'middle', width : '24px', height: '24px'}} src={table} alt=''/>},{id:'c', value:'grid', objectContent: <img style={{ margin: 'auto', verticalAlign: 'middle', width : '24px', height: '24px'}} src={image} alt='' />}]} onChangeToggle={(a)=>{setDisplay(a)}}/>
+      {display === 'table' && movieTableData.bRows ? (
         <Table
           hRows={movieTableData.hRows}
           isSortable
@@ -107,7 +112,7 @@ export default function Home(): ReactElement {
         />
       ) : null}
 
-      {movies ? (
+      {movies && display === 'grid' ? (
         <MoviesList search={search} movies={movies} onClickItem={showMovie} />
       ) : null}
       {movieShowed &&

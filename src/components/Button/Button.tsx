@@ -10,7 +10,7 @@ export enum EBUTTON_TYPE {
   RESET = 'submit'
 }
 
-interface IButtonProps extends HTMLProps<HTMLButtonElement> {
+export interface IButtonProps extends HTMLProps<HTMLButtonElement> {
   /**
    * The button type ("button" by default)
    */
