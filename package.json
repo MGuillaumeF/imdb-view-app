@@ -32,7 +32,8 @@
     "dev-doc": "npx styleguidist server",
     "prettier": "npx prettier --write .",
     "cy:open": "cypress open",
-    "cy:run": "npm start & wait-on http://locahost:3000 & cypress run --config-file cypress.json"
+    "cy:run": "wait-on http://locahost:3000 & cypress run --config-file cypress.json",
+    "ci": "npm start & npm run cy:run"
   },
   "eslintConfig": {
     "extends": "react-app"

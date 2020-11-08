@@ -19,11 +19,11 @@ interface IMovieItemProps {
 /**
  * Function to get Rectangle when poster of movie is not available
  */
-function getEmptyPoster(): ReactElement {
+function getEmptyPoster(alt: string): ReactElement {
 
   return (
     <img
-      src={noPoster} alt='no poster'
+      src={noPoster} alt={alt}
     />
   );
 }
@@ -68,9 +68,9 @@ export default function MovieItem(props: IMovieItemProps): ReactElement {
           }}
         />
       ) : (
-        getEmptyPoster()
+        getEmptyPoster(props.data.title)
       )}
-      {props.data.posterPath && !imageLoading ? getEmptyPoster() : null}
+      {props.data.posterPath && !imageLoading ? getEmptyPoster(props.data.title) : null}
       <div>
         <h3>{props.data.title}</h3>
         <p>{props.data.releaseDate}</p>

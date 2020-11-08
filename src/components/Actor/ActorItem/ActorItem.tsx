@@ -16,7 +16,7 @@ function ActorItem(props: IActorItemProps): ReactElement {
         />
       ) : (
         <img
-        src={noPoster} alt='no poster'
+        src={noPoster} alt={props.person.name}
       />
       )}
 

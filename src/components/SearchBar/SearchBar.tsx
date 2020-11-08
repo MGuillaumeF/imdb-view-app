@@ -45,7 +45,7 @@ export default function SearchBar({
       </Button>
       <input
         placeholder={t('SEARCH')}
-        type='text'
+        type='search'
         ref={searchField}
         {...inputDefinition}
       />

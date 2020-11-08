@@ -102,13 +102,13 @@ export default function Home(): ReactElement {
   return (
     <div className='Home'>
       <MenuBar title={t(ETRANSLATION_KEYS.TITLE)} />
-      <SearchBar onSearch={getSearch} />
+      <SearchBar onSearch={getSearch} inputDefinition={{id: 'searchInput'}}/>
       <ToggleButtonGroup
         defaultValue='grid'
         style={{ position: 'relative', marginLeft: 'auto', marginTop: '5px' }}
         buttons={[
           {
-            id: 'a',
+            id: 'tableDisplayButton',
             value: 'table',
             objectContent: (
               <img
@@ -124,7 +124,7 @@ export default function Home(): ReactElement {
             )
           },
           {
-            id: 'c',
+            id: 'gridDisplayButton',
             value: 'grid',
             objectContent: (
               <img
