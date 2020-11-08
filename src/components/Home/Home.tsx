@@ -1,7 +1,7 @@
 import React, { ReactElement, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
-import {Logger} from '../../logger';
+import { Logger } from '../../logger';
 
 import Movie, * as Data from '../../model/Movie';
 import SearchBar from '../SearchBar';
@@ -19,7 +19,7 @@ import image from '../../icons/image.svg';
 import table from '../../icons/table.svg';
 import ToggleButtonGroup from '../ToggleButton/ToggleButtonGroup';
 
-const LOGGER= Logger.getInstance();
+const LOGGER = Logger.getInstance();
 
 function moviesToTableData(data: Movie[] | undefined) {
   const hRows: ITRow[] = [];
@@ -103,7 +103,47 @@ export default function Home(): ReactElement {
     <div className='Home'>
       <MenuBar title={t(ETRANSLATION_KEYS.TITLE)} />
       <SearchBar onSearch={getSearch} />
-      <ToggleButtonGroup defaultValue='grid' style={{position : 'relative', marginLeft : 'auto', marginTop: '5px'}} buttons={[{id:'a', value:'table', objectContent: <img style={{margin: "auto", verticalAlign:'middle', width : '24px', height: '24px'}} src={table} alt=''/>},{id:'c', value:'grid', objectContent: <img style={{ margin: 'auto', verticalAlign: 'middle', width : '24px', height: '24px'}} src={image} alt='' />}]} onChangeToggle={(a)=>{setDisplay(a)}}/>
+      <ToggleButtonGroup
+        defaultValue='grid'
+        style={{ position: 'relative', marginLeft: 'auto', marginTop: '5px' }}
+        buttons={[
+          {
+            id: 'a',
+            value: 'table',
+            objectContent: (
+              <img
+                style={{
+                  margin: 'auto',
+                  verticalAlign: 'middle',
+                  width: '24px',
+                  height: '24px'
+                }}
+                src={table}
+                alt=''
+              />
+            )
+          },
+          {
+            id: 'c',
+            value: 'grid',
+            objectContent: (
+              <img
+                style={{
+                  margin: 'auto',
+                  verticalAlign: 'middle',
+                  width: '24px',
+                  height: '24px'
+                }}
+                src={image}
+                alt=''
+              />
+            )
+          }
+        ]}
+        onChangeToggle={(a) => {
+          setDisplay(a);
+        }}
+      />
       {display === 'table' && movieTableData.bRows ? (
         <Table
           hRows={movieTableData.hRows}

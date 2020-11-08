@@ -1,6 +1,6 @@
 import axios from 'axios';
-import {Logger} from '../../logger';
-const LOGGER= Logger.getInstance();
+import { Logger } from '../../logger';
+const LOGGER = Logger.getInstance();
 enum EPROTOCOL {
   FTP = 'ftp:',
   WS = 'ws:',

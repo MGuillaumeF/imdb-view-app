@@ -1,7 +1,7 @@
 import { EHTTP_METHOD, request, Headers, Query } from '../comm';
 import i18next from 'i18next';
-import {Logger} from '../logger';
-const LOGGER= Logger.getInstance();
+import { Logger } from '../logger';
+const LOGGER = Logger.getInstance();
 
 const REACT_APP_TOKEN =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOGZjNmQ3OTVlMzhiNmI1NTdmOWNhN2FhZTFjYzViMyIsInN1YiI6IjVmN2NmNmFmZmRmYzlmMDAzOGI1OTBkNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7mm9P-EFL-HdQVo2gxao0egAaHujxrm3XiuUzWiLnDY';

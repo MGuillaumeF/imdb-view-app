@@ -5,9 +5,8 @@ import * as Film from '../../../model/Movie';
 import ActorList from '../../Actor/ActorList/ActorList';
 import './MovieShow.sass';
 import icon from '../../../icons/heart.svg';
-import {Logger} from '../../../logger';
-const LOGGER= Logger.getInstance();
-
+import { Logger } from '../../../logger';
+const LOGGER = Logger.getInstance();
 
 interface IMovieShowProps {
   /**

@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import './Gauge.sass';
-import {Logger} from '../../logger';
-const LOGGER= Logger.getInstance();
+import { Logger } from '../../logger';
+const LOGGER = Logger.getInstance();
 
 interface IGauge {
   /**

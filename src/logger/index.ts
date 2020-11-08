@@ -1,3 +1,3 @@
-import {ELOG_LEVEL, Logger} from './Logger';
+import { ELOG_LEVEL, Logger } from './Logger';
 
-export {ELOG_LEVEL, Logger};
+export { ELOG_LEVEL, Logger };
