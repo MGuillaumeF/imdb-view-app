@@ -1,5 +1,6 @@
 import axios from 'axios';
-
+import {Logger} from '../../logger';
+const LOGGER= Logger.getInstance();
 enum EPROTOCOL {
   FTP = 'ftp:',
   WS = 'ws:',
@@ -129,7 +130,7 @@ function getStatusTextByCode(statusCode: number) {
       sStatusText = EHTTP_STATUS_TEXT.UNREACHABLE_SERVER;
       break;
     default:
-      console.error('UNKNOWN HTTP STATUS');
+      LOGGER.error('UNKNOWN HTTP STATUS');
       eStatusCode = EHTTP_STATUS_CODE.INTERNAL_SERVER_ERROR;
       sStatusText = EHTTP_STATUS_TEXT.INTERNAL_SERVER_ERROR;
   }
@@ -149,7 +150,7 @@ export async function request(params: IHTTPRequest): Promise<IHTTPResponse> {
       if (error.response) {
         axiosResponse = error.response;
       }
-      console.error('error', error.response);
+      LOGGER.error('error', error.response);
     });
 
   const titi = getStatusTextByCode(axiosResponse ? axiosResponse.status : -1);

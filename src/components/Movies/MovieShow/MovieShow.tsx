@@ -5,6 +5,9 @@ import * as Film from '../../../model/Movie';
 import ActorList from '../../Actor/ActorList/ActorList';
 import './MovieShow.sass';
 import icon from '../../../icons/heart.svg';
+import {Logger} from '../../../logger';
+const LOGGER= Logger.getInstance();
+
 
 interface IMovieShowProps {
   /**
@@ -22,11 +25,11 @@ function MovieShow(props: IMovieShowProps): ReactElement {
   useEffect(() => {
     const fetchMovieDetails = async (filmId: number) => {
       let details = await Film.findDetails(filmId).catch((exception) => {
-        console.error('ERROR', exception);
+        LOGGER.error('ERROR', exception);
       });
 
       let { crew, cast } = await Film.findCast(filmId).catch((exception) => {
-        console.error('ERROR', exception);
+        LOGGER.error('ERROR', exception);
       });
       let detailedFilm = {
         details,

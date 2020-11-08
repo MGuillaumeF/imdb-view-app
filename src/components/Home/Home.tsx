@@ -1,6 +1,7 @@
 import React, { ReactElement, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
+import {Logger} from '../../logger';
 
 import Movie, * as Data from '../../model/Movie';
 import SearchBar from '../SearchBar';
@@ -14,6 +15,8 @@ import './Home.sass';
 
 import ETRANSLATION_KEYS from '../../locales/TranslationKeys';
 import flagFR from '../../icons/flags/fr.svg';
+
+const LOGGER= Logger.getInstance();
 
 function moviesToTableData(data: Movie[] | undefined) {
   const hRows: ITRow[] = [];
@@ -65,7 +68,7 @@ export default function Home(): ReactElement {
   }, [currentLanguage]);
   function getSearch(value: string) {
     if (value !== search) {
-      console.log(value);
+      LOGGER.debug(value);
       setSearch(value);
       let data: Promise<any>;
       if (value.trim() !== '') {

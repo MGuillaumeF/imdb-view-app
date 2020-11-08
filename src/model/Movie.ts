@@ -1,5 +1,7 @@
 import { EHTTP_METHOD, request, Headers, Query } from '../comm';
 import i18next from 'i18next';
+import {Logger} from '../logger';
+const LOGGER= Logger.getInstance();
 
 const REACT_APP_TOKEN =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOGZjNmQ3OTVlMzhiNmI1NTdmOWNhN2FhZTFjYzViMyIsInN1YiI6IjVmN2NmNmFmZmRmYzlmMDAzOGI1OTBkNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7mm9P-EFL-HdQVo2gxao0egAaHujxrm3XiuUzWiLnDY';
@@ -25,7 +27,7 @@ async function movieDbAPIRequest(params: {
     },
     headers: { ...headers, ...params.headers }
   }).catch((exception) => {
-    console.error(exception);
+    LOGGER.error(exception);
     throw exception;
   });
 
@@ -45,7 +47,7 @@ export const getData = async (url: string = ''): Promise<Movie[]> => {
     method: EHTTP_METHOD.GET,
     pathname: url.trim() !== '' ? url : '/4/list/1'
   }).catch((exception) => {
-    console.error(exception);
+    LOGGER.error(exception);
     throw exception;
   });
 
@@ -130,7 +132,7 @@ export function addToFavorites(filmId: number) {
   const favorites = getFavorites();
 
   if (!favorites.includes(filmId)) {
-    console.log('Not prensent, add : ', favorites, filmId);
+    LOGGER.info('Not prensent, add : ', favorites, filmId);
     window.localStorage.setItem(
       '@MyMovieList::Favorites',
       JSON.stringify([...favorites, filmId])

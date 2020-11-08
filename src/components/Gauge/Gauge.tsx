@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react';
 import './Gauge.sass';
+import {Logger} from '../../logger';
+const LOGGER= Logger.getInstance();
 
 interface IGauge {
   /**
@@ -54,15 +56,15 @@ export default function Gauge(props: IGauge): ReactElement {
   if (min > max) {
     min = 0;
     max = 100;
-    console.error('Invalid définition of min and max values');
+    LOGGER.error('Invalid définition of min and max values');
   }
   if (note > max) {
     note = max;
-    console.error('Note out of max range');
+    LOGGER.error('Note out of max range');
   }
   if (note < min) {
     note = min;
-    console.error('Note out of min range');
+    LOGGER.error('Note out of min range');
   }
   const totalRange = max - min;
   const valueRange = note - min;
