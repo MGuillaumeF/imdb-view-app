@@ -27,7 +27,7 @@
     "gh-pages": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "el:build": "react-scripts build --homepage ./",
+    "el:build": "PUBLIC_URL=./ react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-doc": "npx styleguidist build",
