@@ -109,5 +109,4 @@ build
 
 cypress/fixtures
 cypress/plugins
-cypress/support
 cypress/integration/examples
