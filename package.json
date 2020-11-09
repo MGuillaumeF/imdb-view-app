@@ -36,20 +36,24 @@
     "cy:open": "cypress open",
     "cy:run": "wait-on http://locahost:3000 && cypress run --config-file cypress.json",
     "ci": "npm start & npm run cy:run",
-    "electron:run" : "npm run el:build && electron electronApp.js",
+    "electron:run": "npm run el:build && electron electronApp.js",
     "package:mac": "electron-packager electronApp.js --overwrite --platform=darwin --arch=all --icon=/Users/michelguillaume/Documents/Michel/code/imdb-view-app/src/icons/heart.png --prune=true --out=release-builds",
-    "installer:mac": "electron-installer-dmg ./release-builds/Electron\\ tutorial\\ app-darwin-x64/Electron\\ tutorial\\ app.app electron-tutorial-app --out=release-builds --overwrite --icon=/Users/michelguillaume/Documents/Michel/code/imdb-view-app/src/icons/heart.png"
+    "installer:mac": "electron-installer-dmg ./release-builds/imdb-view-app-darwin-x64/imdb-view-app.app imdb-view-app --out=installer --overwrite --icon=/Users/michelguillaume/Documents/Michel/code/imdb-view-app/src/icons/heart.png"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "build" : {
-    "appId" : "com.${name}.app",
-    "productName" : "IMDB View",
-    "copyright" : "Copyright © 2020 ${author}",
-    "buildResources" : "build",
-    "files" : ["build/**/*"],
-    "extraResources" : ["build/**/*"]
+  "build": {
+    "appId": "com.${name}.app",
+    "productName": "IMDB View",
+    "copyright": "Copyright © 2020 ${author}",
+    "buildResources": "build",
+    "files": [
+      "build/**/*"
+    ],
+    "extraResources": [
+      "build/**/*"
+    ]
   },
   "browserslist": {
     "production": [
@@ -67,6 +71,7 @@
     "acorn": "^6.4.2",
     "cypress": "^5.5.0",
     "electron": "^10.1.5",
+    "electron-installer-dmg": "^3.0.0",
     "electron-packager": "^15.1.0",
     "electron-winstaller": "^4.0.1",
     "gh-pages": "^3.1.0",
