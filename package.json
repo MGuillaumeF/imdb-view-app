@@ -1,9 +1,15 @@
 {
   "name": "imdb-view-app",
-  "author": "MGuillaumeF",
+  "author": {
+    "name" : "MGuillaumeF",
+    "email" : "michel.guillaume--foucaud@hotmail.fr"
+  },
+  "description": "IMDP application to display movies tickets",
   "version": "0.1.0",
+  "productName": "IMDB View",
   "homepage": "https://mguillaumef.github.io/imdb-view-app",
   "private": true,
+  "main": "public/electron.js",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -36,24 +42,26 @@
     "cy:open": "cypress open",
     "cy:run": "wait-on http://locahost:3000 && cypress run --config-file cypress.json",
     "ci": "npm start & npm run cy:run",
-    "electron:run": "npm run el:build && electron electronApp.js",
-    "package:mac": "electron-packager electronApp.js --overwrite --platform=darwin --arch=all --icon=/Users/michelguillaume/Documents/Michel/code/imdb-view-app/src/icons/heart.png --prune=true --out=release-builds",
+    "electron:run": "electron public/electron.js",
+    "package:mac": "electron-builder",
     "installer:mac": "electron-installer-dmg ./release-builds/imdb-view-app-darwin-x64/imdb-view-app.app imdb-view-app --out=installer --overwrite --icon=/Users/michelguillaume/Documents/Michel/code/imdb-view-app/src/icons/heart.png"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
   "build": {
-    "appId": "com.${name}.app",
-    "productName": "IMDB View",
+    "appId": "com.$npm_package_name.app",
+    "productName" : "IMDB View",
     "copyright": "Copyright © 2020 ${author}",
-    "buildResources": "build",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
     "files": [
       "build/**/*"
     ],
-    "extraResources": [
-      "build/**/*"
-    ]
+    "directories": {
+      "buildResources": "assets"
+    }
   },
   "browserslist": {
     "production": [
@@ -71,6 +79,7 @@
     "acorn": "^6.4.2",
     "cypress": "^5.5.0",
     "electron": "^10.1.5",
+    "electron-builder": "^22.9.1",
     "electron-installer-dmg": "^3.0.0",
     "electron-packager": "^15.1.0",
     "electron-winstaller": "^4.0.1",

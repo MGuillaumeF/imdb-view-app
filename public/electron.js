@@ -4,11 +4,11 @@ const path = require('path');
 const url = require('url');
 var iconPath;
 if (process.platform === 'win32') {
-	iconPath = path.join(__dirname, 'src/icons/heart.png');
+	iconPath = path.join(__dirname, '../src/icons/heart.png');
 } else if (process.platform === 'linux') {
-	iconPath = path.join(__dirname, 'src/icons/heart.png');
+	iconPath = path.join(__dirname, '../src/icons/heart.png');
 } else if (process.platform === 'darwin') {
-	iconPath = path.join(__dirname, 'src/icons/heart.png');
+	iconPath = path.join(__dirname, '../src/icons/heart.png');
 }
 // Définition de la partie System Tray de l'application
 let appIcon = null;
@@ -28,7 +28,7 @@ function createWindow () {
 	appIcon.setToolTip('IMDB App Example');
   // chargement de l'application SPA 
   win.loadURL(url.format({
-    pathname: path.join(__dirname, 'build/index.html'),
+    pathname: path.join(__dirname, '../build/index.html'),
     protocol: 'file:',
     slashes: true
   }));
