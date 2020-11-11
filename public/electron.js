@@ -4,11 +4,11 @@ const path = require('path');
 const url = require('url');
 var iconPath;
 if (process.platform === 'win32') {
-	iconPath = path.join(__dirname, '../src/icons/heart.png');
+	iconPath = path.join(__dirname, './icon.png');
 } else if (process.platform === 'linux') {
-	iconPath = path.join(__dirname, '../src/icons/heart.png');
+	iconPath = path.join(__dirname, './icon.png');
 } else if (process.platform === 'darwin') {
-	iconPath = path.join(__dirname, '../src/icons/heart.png');
+	iconPath = path.join(__dirname, './icon.png');
 }
 // Définition de la partie System Tray de l'application
 let appIcon = null;
