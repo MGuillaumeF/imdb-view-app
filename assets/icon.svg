@@ -6,63 +6,51 @@
         M 50 160
         L 60 160 
         L 100 110
-        L 50 110" fill="#FFF" transform="rotate(-10, 50, 160)" />
-
-    <path d="M 100 160
+        L 50 110
+        M 100 160
         L 140 160 
         L 180 110
-        L 140 110" fill="#FFF" transform="rotate(-10, 50, 160)" />
-
-    <path d="M 180 160
+        L 140 110
+        M 180 160
         L 220 160 
         L 260 110
-        L 220 110" fill="#FFF" transform="rotate(-10, 50, 160)" />
-
-    <path d="M 260 160
+        L 220 110
+        M 260 160
         L 300 160 
         L 340 110
-        L 300 110" fill="#FFF" transform="rotate(-10, 50, 160)" />
-
-    <path d="M 340 160
+        L 300 110
+        M 340 160
         L 380 160 
         L 420 110
-        L 380 110" fill="#FFF" transform="rotate(-10, 50, 160)" />
-
-    <path d="M 420 160
+        L 380 110
+        M 420 160
         L 462 160 
         L 462 110
         L 462 110" fill="#FFF" transform="rotate(-10, 50, 160)" />
 
     <rect y="160" x="50" width="412" height="240" />
 
-
-
     <path d="M 50 160
         L 60 160 
         L 100 210
-        L 50 210" fill="#FFF" />
-
-    <path d="M 100 160
+        L 50 210
+        M 100 160
         L 140 160 
         L 180 210
-        L 140 210" fill="#FFF" />
-
-    <path d="M 180 160
+        L 140 210
+        M 180 160
         L 220 160 
         L 260 210
-        L 220 210" fill="#FFF" />
-
-    <path d="M 260 160
+        L 220 210
+        M 260 160
         L 300 160 
         L 340 210
-        L 300 210" fill="#FFF" />
-
-    <path d="M 340 160
+        L 300 210
+        M 340 160
         L 380 160 
         L 420 210
-        L 380 210" fill="#FFF" />
-
-    <path d="M 420 160
+        L 380 210
+        M 420 160
         L 462 160 
         L 462 210
         L 462 210" fill="#FFF" />
@@ -79,9 +67,9 @@
         L 180 300
         M 332 230 
         L 332 300" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
-<text dx="256" dy="350" color="white"  text-anchor="middle" font-family="Nunito Sans" font-size="30" fill="#FFF">
-    IMDB View
-</text>
+    <text dx="256" dy="350" color="white" text-anchor="middle" font-family="Nunito Sans" font-size="30" fill="#FFF">
+        IMDB View
+    </text>
 
 
 </svg>
