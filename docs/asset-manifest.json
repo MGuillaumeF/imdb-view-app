@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/imdb-view-app/static/css/main.5f8f5f29.chunk.css",
-    "main.js": "/imdb-view-app/build/main.a095f6b6.js",
+    "main.css": "/imdb-view-app/static/css/main.8c230f3f.chunk.css",
+    "main.js": "/imdb-view-app/build/main.fa04b080.js",
     "runtime-main.js": "/imdb-view-app/build/bundle.153ee7bb.js",
-    "build/2.01cf4667.js": "/imdb-view-app/build/2.01cf4667.js",
-    "build/2.01cf4667.js.LICENSE.txt": "/imdb-view-app/build/2.01cf4667.js.LICENSE.txt",
+    "build/2.b233acbe.js": "/imdb-view-app/build/2.b233acbe.js",
+    "build/2.b233acbe.js.LICENSE.txt": "/imdb-view-app/build/2.b233acbe.js.LICENSE.txt",
     "index.html": "/imdb-view-app/index.html",
-    "static/css/main.5f8f5f29.chunk.css.map": "/imdb-view-app/static/css/main.5f8f5f29.chunk.css.map",
+    "static/css/main.8c230f3f.chunk.css.map": "/imdb-view-app/static/css/main.8c230f3f.chunk.css.map",
     "static/media/fr.43d8308c.svg": "/imdb-view-app/static/media/fr.43d8308c.svg",
     "static/media/heart.d63fd1bf.svg": "/imdb-view-app/static/media/heart.d63fd1bf.svg",
     "static/media/image.6c57800c.svg": "/imdb-view-app/static/media/image.6c57800c.svg",
     "static/media/menu.2f6c0005.svg": "/imdb-view-app/static/media/menu.2f6c0005.svg",
     "static/media/more.8ef2b065.svg": "/imdb-view-app/static/media/more.8ef2b065.svg",
+    "static/media/no_image.svg": "/imdb-view-app/static/media/no_image.bb30d208.svg",
     "static/media/table.173cddf7.svg": "/imdb-view-app/static/media/table.173cddf7.svg"
   },
   "entrypoints": [
     "build/bundle.153ee7bb.js",
-    "build/2.01cf4667.js",
-    "static/css/main.5f8f5f29.chunk.css",
-    "build/main.a095f6b6.js"
+    "build/2.b233acbe.js",
+    "static/css/main.8c230f3f.chunk.css",
+    "build/main.fa04b080.js"
   ]
 }
