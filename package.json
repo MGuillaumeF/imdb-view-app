@@ -1,8 +1,8 @@
 {
   "name": "imdb-view-app",
   "author": {
-    "name" : "MGuillaumeF",
-    "email" : "michel.guillaume--foucaud@hotmail.fr"
+    "name": "MGuillaumeF",
+    "email": "michel.guillaume--foucaud@hotmail.fr"
   },
   "description": "IMDP application to display movies tickets",
   "version": "0.1.0",
@@ -10,8 +10,7 @@
   "homepage": "https://mguillaumef.github.io/imdb-view-app",
   "private": true,
   "main": "public/electron.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "scripts": {
     "deploy": "npm run build&&npm run build-doc && mv docs build/docs && npm run gh-pages",
     "gh-pages": "gh-pages -d build",
@@ -25,17 +24,17 @@
     "prettier": "npx prettier --write .",
     "cy:open": "cypress open",
     "cy:run": "wait-on http://locahost:3000 && cypress run --config-file cypress.json",
-    "ci": "npm start & npm run cy:run",
-    "electron:run": "electron public/electron.js",
-    "package:mac": "electron-builder",
-    "installer:mac": "electron-installer-dmg ./release-builds/imdb-view-app-darwin-x64/imdb-view-app.app imdb-view-app --out=installer --overwrite --icon=/Users/michelguillaume/Documents/Michel/code/imdb-view-app/src/icons/heart.png"
+    "vscode:prepublish": "npm start & npm run cy:run",
+    "el:run": "electron public/electron.js",
+    "el:package": "electron-builder",
+    "el:installer-mac": "electron-installer-dmg ./release-builds/imdb-view-app-darwin-x64/imdb-view-app.app imdb-view-app --out=installer --overwrite --icon=/Users/michelguillaume/Documents/Michel/code/imdb-view-app/src/icons/heart.png"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
   "build": {
     "appId": "com.$npm_package_name.app",
-    "productName" : "IMDB View",
+    "productName": "IMDB View",
     "copyright": "Copyright © 2020 ${author}",
     "mac": {
       "category": "public.app.category.utilities"
