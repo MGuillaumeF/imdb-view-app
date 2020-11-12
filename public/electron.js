@@ -4,12 +4,12 @@ const path = require('path');
 const url = require('url');
 
 let trayIconPath,
-  iconPath = (trayIconPath = path.join(__dirname, '../assets/icon.png'));
+  iconPath = (trayIconPath = path.join(__dirname, './icon.png'));
 
 if (process.platform === 'win32') {
-  iconPath = trayIconPath = path.join(__dirname, '../assets/icon.ico');
+  iconPath = trayIconPath = path.join(__dirname, './icon.ico');
 } else if (process.platform === 'darwin') {
-  trayIconPath = path.join(__dirname, '../assets/tray-icon.png');
+  trayIconPath = path.join(__dirname, './tray-icon.png');
 }
 // Définition de la fenêtre Chromium
 let win;
