@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import './ActorItem.sass';
-import noPoster from '../../../icons/no_image.svg'
+import noPoster from '../../../icons/no_image.svg';
 
 export interface IActorItemProps {
   person: any;
@@ -15,9 +15,7 @@ function ActorItem(props: IActorItemProps): ReactElement {
           src={`https://image.tmdb.org/t/p/w500${props.person.profile_path}`}
         />
       ) : (
-        <img
-        src={noPoster} alt={props.person.name}
-      />
+        <img src={noPoster} alt={props.person.name} />
       )}
 
       <p>

@@ -102,7 +102,7 @@ export default function Home(): ReactElement {
   return (
     <div className='Home'>
       <MenuBar title={t(ETRANSLATION_KEYS.TITLE)} />
-      <SearchBar onSearch={getSearch} inputDefinition={{id: 'searchInput'}}/>
+      <SearchBar onSearch={getSearch} inputDefinition={{ id: 'searchInput' }} />
       <ToggleButtonGroup
         defaultValue='grid'
         style={{ position: 'relative', marginLeft: 'auto', marginTop: '5px' }}

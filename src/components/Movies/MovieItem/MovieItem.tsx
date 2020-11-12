@@ -3,7 +3,7 @@ import Movie from '../../../model/Movie';
 import * as Film from '../../../model/Movie';
 import Gauge from '../../Gauge/Gauge';
 import './MovieItem.sass';
-import noPoster from '../../../icons/no_image.svg'
+import noPoster from '../../../icons/no_image.svg';
 
 interface IMovieItemProps {
   /**
@@ -20,12 +20,7 @@ interface IMovieItemProps {
  * Function to get Rectangle when poster of movie is not available
  */
 function getEmptyPoster(alt: string): ReactElement {
-
-  return (
-    <img
-      src={noPoster} alt={alt}
-    />
-  );
+  return <img src={noPoster} alt={alt} />;
 }
 
 /**
@@ -70,7 +65,9 @@ export default function MovieItem(props: IMovieItemProps): ReactElement {
       ) : (
         getEmptyPoster(props.data.title)
       )}
-      {props.data.posterPath && !imageLoading ? getEmptyPoster(props.data.title) : null}
+      {props.data.posterPath && !imageLoading
+        ? getEmptyPoster(props.data.title)
+        : null}
       <div>
         <h3>{props.data.title}</h3>
         <p>{props.data.releaseDate}</p>
