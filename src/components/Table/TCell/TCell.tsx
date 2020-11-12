@@ -4,7 +4,8 @@ export interface ITCell {
   id: string;
   className?: string;
   style?: React.CSSProperties;
-  content: string;
+  rawContent: string;
+  content?: ReactNode;
   onClick?: Function;
   header?: boolean;
   children?: ReactNode;
@@ -19,13 +20,13 @@ function DataCell(props: ITCell): ReactElement {
   }
   return <td onClick={onClick}>{props.children}</td>;
 }
-function HeaderCell(props: ITCell): ReactElement {
+function HeaderCell({children, ...props}: ITCell): ReactElement {
   function onClick() {
     if (props.onClick) {
       props.onClick();
     }
   }
-  return <th onClick={onClick}>{props.children}</th>;
+  return <th onClick={onClick}>{children}</th>;
 }
 
 export default function TCell(props: ITCell): ReactElement {
@@ -40,9 +41,10 @@ export default function TCell(props: ITCell): ReactElement {
       id={props.id}
       col={props.col}
       onClick={onClick}
+      rawContent={props.rawContent}
       content={props.content}
     >
-      {props.content}
+      {props.content || props.rawContent}
     </Comp>
   );
 }

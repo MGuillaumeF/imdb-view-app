@@ -29,6 +29,7 @@ export default function TRow({
             id={cell.id}
             col={index}
             content={cell.content}
+            rawContent={cell.rawContent}
             onClick={onClickOnRow ? onClickCell : undefined}
             header={cell.header}
           />

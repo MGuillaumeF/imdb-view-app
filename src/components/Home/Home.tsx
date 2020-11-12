@@ -33,7 +33,7 @@ function moviesToTableData(data: Movie[] | undefined) {
           cells: cols.map((col) => {
             return {
               id: `hr_0_${col}`,
-              content: col,
+              rawContent: col,
               header: true
             };
           })
@@ -45,7 +45,8 @@ function moviesToTableData(data: Movie[] | undefined) {
         cells: cols.map((col) => {
           return {
             id: `br_${index}_${col}`,
-            content: tmp[col]
+            rawContent: tmp[col],
+            content: col === 'posterPath' ? <img style={{width:'5em'}} src={`https://image.tmdb.org/t/p/w500/${tmp[col]}`} alt='' /> : undefined
           };
         })
       });

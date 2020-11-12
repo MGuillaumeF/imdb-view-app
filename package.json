@@ -25,6 +25,7 @@
     "cy:open": "cypress open",
     "cy:run": "wait-on http://locahost:3000 && cypress run --config-file cypress.json",
     "vscode:prepublish": "npm start & npm run cy:run",
+    "el:dev": "wait-on http://locahost:3000 && npm run el:run",
     "el:run": "electron public/electron.js",
     "el:package": "electron-builder",
     "el:installer-mac": "electron-installer-dmg ./release-builds/imdb-view-app-darwin-x64/imdb-view-app.app imdb-view-app --out=installer --overwrite --icon=/Users/michelguillaume/Documents/Michel/code/imdb-view-app/src/icons/heart.png"
