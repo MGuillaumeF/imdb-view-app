@@ -1,73 +1,73 @@
 <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" version="1.1">
 
-    <rect y="110" x="50" width="412" height="50" transform="rotate(-10, 50, 160)" />
+    <rect y="172" x="50" width="412" height="50" transform="rotate(-18, 50, 222)" />
 
     <path d="
-        M 50 160
-        L 60 160 
-        L 100 110
-        L 50 110
-        M 100 160
-        L 140 160 
-        L 180 110
-        L 140 110
-        M 180 160
-        L 220 160 
-        L 260 110
-        L 220 110
-        M 260 160
-        L 300 160 
-        L 340 110
-        L 300 110
-        M 340 160
-        L 380 160 
-        L 420 110
-        L 380 110
-        M 420 160
-        L 462 160 
-        L 462 110
-        L 462 110" fill="#FFF" transform="rotate(-10, 50, 160)" />
+        M 50 222
+        L 60 222 
+        L 100 172
+        L 50 172
+        M 100 222
+        L 140 222 
+        L 180 172
+        L 140 172
+        M 180 222
+        L 220 222 
+        L 260 172
+        L 220 172
+        M 260 222
+        L 300 222 
+        L 340 172
+        L 300 172
+        M 340 222
+        L 380 222 
+        L 420 172
+        L 380 172
+        M 420 222
+        L 462 222 
+        L 462 172
+        L 462 172" fill="#FFF" transform="rotate(-18, 50, 222)" />
 
-    <rect y="160" x="50" width="412" height="240" />
+    <rect y="222" x="50" width="412" height="240" />
 
-    <path d="M 50 160
-        L 60 160 
-        L 100 210
-        L 50 210
-        M 100 160
-        L 140 160 
-        L 180 210
-        L 140 210
-        M 180 160
-        L 220 160 
-        L 260 210
-        L 220 210
-        M 260 160
-        L 300 160 
-        L 340 210
-        L 300 210
-        M 340 160
-        L 380 160 
-        L 420 210
-        L 380 210
-        M 420 160
-        L 462 160 
-        L 462 210
-        L 462 210" fill="#FFF" />
+    <path d="M 50 222
+        L 60 222 
+        L 100 272
+        L 50 272
+        M 100 222
+        L 140 222 
+        L 180 272
+        L 140 272
+        M 180 222
+        L 220 222 
+        L 260 272
+        L 220 272
+        M 260 222
+        L 300 222 
+        L 340 272
+        L 300 272
+        M 340 222
+        L 380 222 
+        L 420 272
+        L 380 272
+        M 420 222
+        L 462 222 
+        L 462 272
+        L 462 272" fill="#FFF" />
 
-    <path d="M 70 230
-        L 442 230
-        M 70 300 
-        L 442 300
-        M 70 380 
-        L 442 380
-        M 70 360 
-        L 442 360
-        M 180 230 
-        L 180 300
-        M 332 230 
-        L 332 300" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
-    <text dx="256" dy="350" color="white" text-anchor="middle" font-family="Nunito Sans" font-size="30" fill="#FFF">
+    <path d="M 70 292
+        L 442 292
+        M 70 362 
+        L 442 362
+        M 70 442 
+        L 442 442
+        M 70 422 
+        L 442 422
+        M 180 292 
+        L 180 362
+        M 332 292 
+        L 332 362" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+    <text dx="256" dy="412" color="white" text-anchor="middle" font-family="Nunito Sans" font-size="30" fill="#FFF">
         IMDB View
     </text>
 
