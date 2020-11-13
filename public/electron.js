@@ -30,12 +30,14 @@ function createWindow() {
   const appIcon = new Tray(trayIconPath);
   appIcon.setToolTip('IMDB App Example');
   // chargement de l'application SPA
-  win.loadURL(process.env.NODE_ENV === 'development' ? 'http://localhost:3000' :
-    url.format({
-      pathname: path.join(__dirname, '../build/index.html'),
-      protocol: 'file:',
-      slashes: true
-    })
+  win.loadURL(
+    process.env.NODE_ENV === 'development'
+      ? 'http://localhost:3000'
+      : url.format({
+          pathname: path.join(__dirname, '../build/index.html'),
+          protocol: 'file:',
+          slashes: true
+        })
   );
 
   // affichage dès que l'appli est prête
