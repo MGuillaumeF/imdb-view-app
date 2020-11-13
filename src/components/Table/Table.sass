@@ -13,7 +13,6 @@ table
                 th, td 
                     padding-bottom: 1em
                     position: relative
-                    vertical-align: align
                     &:hover::after
                             width: 100%
                             content : '^'
@@ -30,5 +29,9 @@ table
                 background-color: #575757
             td
                 background-color: #383838
+    tbody
+        td, th 
+            vertical-align: middle
+
 td, th
     padding: 3px

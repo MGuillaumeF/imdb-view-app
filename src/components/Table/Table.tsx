@@ -30,7 +30,10 @@ function Table({ isSortable, hRows, bRows, fRows }: ITable): ReactElement {
   }, [bRows]);
   function sortRowsByCol(rows: any, col: any, alpha: boolean) {
     let tb = rows.map((element: any, index: number) => {
-      return { rawContent: element.cells[col.index].rawContent, rowIndex: index };
+      return {
+        rawContent: element.cells[col.index].rawContent,
+        rowIndex: index
+      };
     });
     tb.sort((a: any, b: any) => {
       const direction = alpha ? -1 : 1;

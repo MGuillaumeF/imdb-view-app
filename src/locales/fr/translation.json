@@ -1,5 +1,13 @@
 {
   "TITLE": "Titre",
   "ABOUT": "A propos",
-  "SEARCH": "Rechercher"
+  "SEARCH": "Rechercher",
+  "MOVIE": {
+    "TITLE": "Titre",
+    "POSTER": "Affiche",
+    "RELEASE_DATE": "Date de sortie",
+    "ID": "ID",
+    "VOTE_AVERAGE": "Note",
+    "OVERVIEW": "Résumé"
+  }
 }

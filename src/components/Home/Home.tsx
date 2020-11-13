@@ -21,44 +21,6 @@ import ToggleButtonGroup from '../ToggleButton/ToggleButtonGroup';
 
 const LOGGER = Logger.getInstance();
 
-function moviesToTableData(data: Movie[] | undefined) {
-  const hRows: ITRow[] = [];
-  const bRows: ITRow[] = [];
-  if (data) {
-    data.forEach((movie, index) => {
-      const cols = Object.keys(movie);
-      if (index === 0) {
-        hRows.push({
-          id: 'hr_0',
-          cells: cols.map((col) => {
-            return {
-              id: `hr_0_${col}`,
-              rawContent: col,
-              header: true
-            };
-          })
-        });
-      }
-      const tmp: any = movie;
-      bRows.push({
-        id: `br_${index}`,
-        cells: cols.map((col) => {
-          return {
-            id: `br_${index}_${col}`,
-            rawContent: tmp[col],
-            content: col === 'posterPath' ? <img style={{width:'5em'}} src={`https://image.tmdb.org/t/p/w500/${tmp[col]}`} alt='' /> : undefined
-          };
-        })
-      });
-    });
-  }
-
-  return {
-    hRows,
-    bRows
-  };
-}
-
 export default function Home(): ReactElement {
   const { t, i18n } = useTranslation();
   const [search, setSearch] = useState('');
@@ -67,10 +29,11 @@ export default function Home(): ReactElement {
   const [movies, setMovies] = useState<Movie[]>();
   const [currentLanguage, setCurrentLanguage] = useState(i18next.language);
   useEffect(() => {
+    i18n.changeLanguage(currentLanguage);
     Data.getData().then((movies) => {
       return setMovies(movies);
     });
-  }, [currentLanguage]);
+  }, [currentLanguage, i18n]);
   function getSearch(value: string) {
     if (value !== search) {
       LOGGER.debug(value);
@@ -94,8 +57,63 @@ export default function Home(): ReactElement {
       setMovieShowed(mov);
     }
   }
+
+  function moviesToTableData(data: Movie[] | undefined) {
+    const hRows: ITRow[] = [];
+    const bRows: ITRow[] = [];
+    const movieKeyProperties: any = {
+      id: 'MOVIE.ID',
+      title: 'MOVIE.TITLE',
+      posterPath: 'MOVIE.POSTER',
+      releaseDate: 'MOVIE.RELEASE_DATE',
+      voteAverage: 'MOVIE.VOTE_AVERAGE',
+      overview: 'MOVIE.OVERVIEW'
+    };
+    if (data) {
+      data.forEach((movie, index) => {
+        const cols = Object.keys(movie);
+        if (index === 0) {
+          hRows.push({
+            id: 'hr_0',
+            cells: cols.map((col) => {
+              return {
+                id: `hr_0_${col}`,
+                rawContent: col,
+                content: t(movieKeyProperties[col]),
+                header: true
+              };
+            })
+          });
+        }
+        const tmp: any = movie;
+        bRows.push({
+          id: `br_${index}`,
+          cells: cols.map((col) => {
+            return {
+              id: `br_${index}_${col}`,
+              rawContent: tmp[col],
+              content:
+                col === 'posterPath' ? (
+                  <img
+                    onDoubleClick={() => showMovie(movie.id)}
+                    style={{ width: '6em' }}
+                    src={`https://image.tmdb.org/t/p/w500/${tmp[col]}`}
+                    alt=''
+                  />
+                ) : undefined
+            };
+          })
+        });
+      });
+    }
+
+    return {
+      hRows,
+      bRows
+    };
+  }
+
   const changeLang = (lang: string) => {
-    i18n.changeLanguage(lang);
     setCurrentLanguage(lang);
   };
 

@@ -20,7 +20,7 @@ function DataCell(props: ITCell): ReactElement {
   }
   return <td onClick={onClick}>{props.children}</td>;
 }
-function HeaderCell({children, ...props}: ITCell): ReactElement {
+function HeaderCell({ children, ...props }: ITCell): ReactElement {
   function onClick() {
     if (props.onClick) {
       props.onClick();
