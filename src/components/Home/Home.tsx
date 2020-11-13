@@ -18,6 +18,7 @@ import flagFR from '../../icons/flags/fr.svg';
 import image from '../../icons/image.svg';
 import table from '../../icons/table.svg';
 import ToggleButtonGroup from '../ToggleButton/ToggleButtonGroup';
+import { Gauge } from '../Gauge';
 
 const LOGGER = Logger.getInstance();
 
@@ -100,7 +101,17 @@ export default function Home(): ReactElement {
                     src={`https://image.tmdb.org/t/p/w500/${tmp[col]}`}
                     alt=''
                   />
-                ) : undefined
+                ) : col === 'voteAverage' ? (<Gauge
+                  value={movie.voteAverage}
+                  title={`${movie.title} - ${movie.voteAverage}/10`}
+                  description={`The note of movie : ${movie.title}`}
+                  max={10}
+                  style={{
+                    width: '3em',
+                    height: 'auto'
+                  }}
+                  bgGaugeColor='#222'
+                />) : undefined
             };
           })
         });
