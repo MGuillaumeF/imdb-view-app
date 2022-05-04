@@ -51,10 +51,6 @@ jobs:
       working-directory: ${{github.workspace}}
       run: npm run build
 
-    - name: Extract Webpack stats
-      working-directory: ${{github.workspace}}
-      run: npm run webpack-stats
-
     - name: Archive IHM
       uses: actions/upload-artifact@v2
       with:
