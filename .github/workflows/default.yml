@@ -1,0 +1,157 @@
+name: IMDB-VIEW-APP - DEFAULT
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: 
+      - main
+
+permissions: write-all
+
+jobs:
+ sonarcloud-analyse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+
+    - uses: actions/checkout@v2
+      with:
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
+
+    - name: Install client's dependencies
+      working-directory: ${{github.workspace}}
+      run: npm install
+
+    - name: Update Browserlist
+      working-directory: ${{github.workspace}}
+      run: npx browserslist@latest --update-db
+
+    - name: Prettier format
+      if: ${{ github.event_name == 'pull_request' && github.actor != 'dependabot[bot]' }}
+      working-directory: ${{github.workspace}}
+      run: npm run prettier
+
+    - name: Save client changes
+      if: ${{ github.event_name == 'pull_request' && github.actor != 'dependabot[bot]' }}
+      working-directory: ${{github.workspace}}
+      run: |
+        git stash
+        git checkout ${{github.head_ref}}
+        git stash pop
+        git config user.name "MGuillaumeF"
+        git config user.email "${{secrets.EMAIL}}"
+        git add .
+        (git commit -m "[AUTO] prettier format write" && git push) || echo 'No modification to save'
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+    - name: Build client
+      working-directory: ${{github.workspace}}
+      run: npm run build
+
+    - name: Extract Webpack stats
+      working-directory: ${{github.workspace}}
+      run: npm run webpack-stats
+
+    - name: Archive IHM
+      uses: actions/upload-artifact@v2
+      with:
+        name: IHM-IMDB-View-App
+        path: ${{github.workspace}}/build
+
+    - name: Client tests
+      working-directory: ${{github.workspace}}
+      run: npm start & (npm run cy:run && kill $(lsof -t -i:3000))
+
+    - name: Archive IHM Tests videos
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: IHM-IMDB-View-App-Tests-Videos 
+        path: ${{github.workspace}}/cypress/videos
+
+    - name: Print summary coverage
+      working-directory: ${{github.workspace}}
+      run: npx nyc report --reporter=lcov --reporter=text-summary
+
+    - name: ESlint analyze json
+      working-directory: ${{github.workspace}}
+      run: npm run lint:eslint:json || echo FAILED
+
+    - name: ESlint analyze html
+      working-directory: ${{github.workspace}}
+      run: npm run lint:eslint || echo FAILED
+
+    - name: Copy reports
+      working-directory: ${{github.workspace}}
+      if: always()
+      run: |
+        tree cypress
+        mkdir -p ./dist/cypress-reports
+        cp -R ./cypress/reports ./dist/cypress-reports
+        mv ./stats.json ./dist/reports/stats.json
+        mv ./build/stats.html ./dist/reports/stats.html
+
+    - name: Audit dependency
+      working-directory: ${{github.workspace}}
+      run: npm audit --json > ./dist/reports/audit-dependency-report.json || echo FAILED
+
+    - name: Convert Audit dependency report
+      working-directory: ${{github.workspace}}
+      run: ./node_modules/.bin/audiso --input-file=./dist/reports/audit-dependency-report.json --output-file ./dist/reports/audit-report.json
+
+    - name: Stylelint analyze
+      working-directory: ${{github.workspace}}
+      run: npm run lint:stylelint
+
+    - name: Generate Client Docs
+      working-directory: ${{github.workspace}}
+      run: npm run build:doc
+
+    - name: Archive Analyses reports
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: IHM-IMDB-View-App-Analyses-report
+        path: ${{github.workspace}}/dist
+
+    - name: Setup sonarqube
+      if: github.actor != 'dependabot[bot]'
+      uses: warchant/setup-sonar-scanner@v3
+
+    - name: Run SonarQube
+      if: github.actor != 'dependabot[bot]'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: sonar-scanner
+        -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+        -Dsonar.verbose=false
+
+    - name: SonarQube Quality Gate check
+      if: github.actor != 'dependabot[bot]'
+      uses: sonarsource/sonarqube-quality-gate-action@master
+      # Force to fail step after specific time
+      timeout-minutes: 5
+      env:
+       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+ dependabot:
+    needs: [sonarcloud-analyse]
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+    steps:
+
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v1.1.1
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Enable auto-merge for Dependabot PRs 
+        run: gh pr merge --delete-branch --auto --squash "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
