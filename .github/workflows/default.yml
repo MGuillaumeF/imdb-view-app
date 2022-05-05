@@ -68,9 +68,9 @@ jobs:
         name: IHM-IMDB-View-App-Tests-Videos 
         path: ${{github.workspace}}/cypress/videos
 
-    - name: Print summary coverage
-      working-directory: ${{github.workspace}}
-      run: npx nyc report --reporter=lcov --reporter=text-summary
+    #- name: Print summary coverage
+    #  working-directory: ${{github.workspace}}
+    #  run: npx nyc report --reporter=lcov --reporter=text-summary
 
     - name: ESlint analyze json
       working-directory: ${{github.workspace}}
