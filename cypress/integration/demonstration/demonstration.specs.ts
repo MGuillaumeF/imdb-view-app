@@ -1,4 +1,6 @@
-describe('Search Action', () => {
+import specTitle from "cypress-sonarqube-reporter/specTitle";
+
+describe(specTitle('Search Action'), () => {
   it('Visit Page and search Star Wars Films', () => {
     cy.visit('http://localhost:3000');
 
