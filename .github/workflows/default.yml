@@ -102,9 +102,9 @@ jobs:
       working-directory: ${{github.workspace}}
       run: npm run lint:stylelint || echo FAILED
 
-    - name: Generate Client Docs
-      working-directory: ${{github.workspace}}
-      run: npm run build:doc
+    # - name: Generate Client Docs
+    #   working-directory: ${{github.workspace}}
+    #   run: npm run build:doc
 
     - name: Archive Analyses reports
       if: always()
